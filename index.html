@@ -48,7 +48,7 @@
             justify-content: space-between;
             gap: 0.75rem;
             padding: 1.25rem 40px;
-            z-index: 1000;
+            z-index: 10000;
             background: transparent;
         }
 
@@ -103,7 +103,7 @@
         }
 
         .nav-pill a.active {
-            background: rgba(0, 0, 0, 0.08);
+            background: rgba(0, 0, 0, 0.12);
             color: var(--text-primary);
         }
 
@@ -174,7 +174,8 @@
         }
 
         .hero-dot {
-            background: var(--text-primary);
+            background: #4ade80;
+            animation: glowPulse 3s ease-in-out infinite;
         }
 
         .hero-dot-placeholder {
@@ -183,7 +184,9 @@
 
         .hero-massive {
             margin-top: auto;
-            font-size: clamp(8rem, 22vw, 26rem);
+            margin-left: -40px;
+            width: max-content;
+            font-size: 14.4vw;
             font-weight: 600;
             letter-spacing: -0.02em;
             line-height: 0.8;
@@ -197,7 +200,7 @@
         }
 
         #works {
-            padding: 6rem 0 6rem 40px;
+            padding: 0;
         }
 
         .section-header {
@@ -222,82 +225,207 @@
 
         /* About Section */
         .about {
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-primary);
+            padding: 6rem 40px 0;
         }
 
-        .about-content {
-            max-width: 800px;
+        .about-text-layer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
         }
 
-        .about-content h2 {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 600;
-            line-height: 1.4;
-            color: var(--text-secondary);
-        }
-
-        .about-content h2 span {
+        .about-line {
+            font-size: 4rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
             color: var(--text-primary);
         }
 
-        /* Principles */
-        .principles-grid {
+        .about-line-1 {
+            opacity: 1;
+            text-align: left;
+        }
+
+        .about-line-2 {
+            opacity: 1;
+            text-align: right;
+        }
+
+        .about-profile-wrap {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin: 0 -40px;
         }
 
-        .principle-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .about-profile {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .principle-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
+        .about-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
         }
 
-        .principle-card h3 {
-            font-size: 1.25rem;
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 40px;
+        }
+
+        .about-details h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
             font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-details p {
+            font-size: clamp(0.9375rem, 1.1vw, 1.125rem);
+            line-height: 1.7;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
         }
 
-        .principle-card p {
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
-
-        /* Stats */
-        .stats {
-            background-color: var(--bg-secondary);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .skills-tools-grid {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            text-align: center;
+            margin-top: 2rem;
         }
 
-        .stat-item h3 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: -0.03em;
-            line-height: 1;
+        .skills-tools-col h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
-        .stat-item p {
-            margin-top: 0.75rem;
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
+        .chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.875rem;
             font-weight: 500;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        .work-experience {
+            margin-top: 2rem;
+        }
+
+        .work-experience h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .exp-item {
+            padding: 0.75rem 0;
+        }
+
+        .exp-date {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-freelance {
+            color: var(--text-primary);
+        }
+
+        .exp-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Recent Work Section */
+        .recent-work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Client Logo Marquee */
+        .client-marquee {
+            overflow: hidden;
+            padding: 2rem 0;
+            position: relative;
+            margin: 0 -40px;
+        }
+
+        .client-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 30s linear infinite;
+        }
+
+        .client-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-marquee-item {
+            flex-shrink: 0;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+        }
+
+        .client-marquee-item img {
+            max-height: 100%;
+            max-width: 140px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .client-marquee-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes marqueeScroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* Featured Works */
@@ -308,95 +436,114 @@
             background: var(--bg-primary);
         }
 
-        .works-hero-stage {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .works-title-left,
-        .works-title-right {
+        .works-hero-split {
             position: absolute;
             top: 50%;
-            font-size: clamp(3rem, 8vw, 7rem);
+            left: 0;
+            right: 0;
+            height: 0;
+            z-index: 3;
+        }
+
+        .works-text-left {
+            position: absolute;
+            right: 50%;
+            top: 0;
+            transform: translateY(-50%);
+            font-size: 80px;
             font-weight: 500;
-            letter-spacing: -0.03em;
             color: var(--text-primary);
             white-space: nowrap;
             will-change: transform;
+            padding-right: 0.4em;
         }
 
-        .works-title-left {
-            right: 50%;
-            transform: translateY(-50%);
-            padding-right: 0.3em;
-        }
-
-        .works-title-right {
-            left: 50%;
-            transform: translateY(-50%);
-            padding-left: 0.3em;
-        }
-
-        .works-image-reveal {
+        .works-text-right {
             position: absolute;
-            top: 0;
             left: 50%;
-            height: 100%;
+            top: 0;
+            transform: translateY(-50%);
+            font-size: 80px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            will-change: transform;
+            padding-left: 0.4em;
+        }
+
+        .works-hero-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
             width: 0;
+            height: 0;
+            transform: translate(-50%, -50%);
             overflow: hidden;
             z-index: 1;
-            will-change: width, transform;
+            will-change: width, height;
         }
 
-        .works-image-reveal img {
+        .works-hero-image img {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
             height: 100%;
-            width: 50vw;
             object-fit: cover;
-            max-width: none;
+            transition: opacity 0.4s ease;
         }
 
-        .works-hero-content {
+        .works-hero-image .work-img-hover {
+            opacity: 0;
+        }
+
+        .works-hero-image:hover .work-img-default {
+            opacity: 0;
+        }
+
+        .works-hero-image:hover .work-img-hover {
+            opacity: 1;
+        }
+
+        .works-divider {
+            height: 50vh;
+        }
+
+        .works-grid {
+            position: relative;
+            margin-bottom: 50vh;
+        }
+
+        .works-slide {
             position: absolute;
             top: 0;
             left: 0;
-            width: 50%;
-            height: 100%;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            transform: translateY(100%);
+            will-change: transform;
+        }
+
+        .works-slide:first-child {
+            transform: translateY(0%);
+        }
+
+        .works-slide:nth-child(1) { z-index: 1; }
+        .works-slide:nth-child(2) { z-index: 2; }
+        .works-slide:nth-child(3) { z-index: 3; }
+
+        .works-slide-content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 8rem 40px 4rem;
-            z-index: 3;
-            opacity: 0;
-            pointer-events: none;
-            will-change: opacity, transform;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 5rem 40px 2.5rem;
+            background: var(--bg-primary);
         }
 
-        .works-hero-content.active {
-            pointer-events: auto;
-        }
-
-        .works-hero-content .work-meta-row {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .works-hero-content .work-project-name {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .works-hero-content h3 {
+        .works-slide-content h3 {
             font-size: clamp(2rem, 3vw, 3.2rem);
             font-weight: 600;
             letter-spacing: -0.03em;
@@ -406,7 +553,7 @@
             max-width: 480px;
         }
 
-        .works-hero-content p {
+        .works-slide-content p {
             color: var(--text-secondary);
             font-size: clamp(1rem, 1.1vw, 1.125rem);
             line-height: 1.7;
@@ -414,27 +561,22 @@
             max-width: 440px;
         }
 
-        /* Remaining works grid */
-        .works-grid {
-            display: grid;
-            gap: 0;
-            margin-top: 0;
-            padding: 0;
-        }
-
-        .work-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            align-items: center;
-            min-height: 80vh;
-        }
-
-        .work-content {
+        .work-meta-row {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem 3rem 4rem 0;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .work-meta-row .work-tag {
+            margin-bottom: 0;
+        }
+
+        .work-project-name {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
         }
 
         .work-tag {
@@ -470,30 +612,36 @@
             box-shadow: 0 8px 25px rgba(249, 115, 22, 0.25);
         }
 
-        .work-image {
-            background: linear-gradient(135deg, #e8e6e1 0%, #ddd9d2 100%);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .works-slide-image {
             position: relative;
             overflow: hidden;
-            border-radius: 0;
+            background: linear-gradient(135deg, #e8e6e1 0%, #ddd9d2 100%);
         }
 
-        .work-image::before {
-            content: '';
+        .works-slide-image img {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, transparent 60%);
-            animation: pulse 4s ease-in-out infinite;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
         }
 
-        .work-placeholder {
-            font-size: 4rem;
-            opacity: 0.3;
-            z-index: 1;
+        .work-img-default,
+        .work-img-hover {
+            opacity: 1;
+        }
+
+        .work-img-hover {
+            opacity: 0;
+        }
+
+        .works-slide-image:hover .work-img-default {
+            opacity: 0;
+        }
+
+        .works-slide-image:hover .work-img-hover {
+            opacity: 1;
         }
 
         /* Clients Section */
@@ -578,13 +726,683 @@
             box-shadow: 0 10px 30px rgba(249, 115, 22, 0.25);
         }
 
+        /* Recent Work Section */
+        .recent-work {
+            padding: 6rem 40px;
+            background: var(--bg-primary);
+        }
+
+        .recent-work-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+        }
+
+        .recent-work-sidebar {
+            position: sticky;
+            top: 6rem;
+            height: fit-content;
+        }
+
+        .recent-work-sidebar h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .recent-work-years {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .recent-work-years a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .recent-work-years a::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .recent-work-years a:hover,
+        .recent-work-years a.active {
+            color: var(--text-primary);
+        }
+
+        .recent-work-years a:hover::before,
+        .recent-work-years a.active::before {
+            background: var(--text-primary);
+        }
+
+        .recent-work-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .recent-work-year-section {
+            scroll-margin-top: 6rem;
+        }
+
+        .recent-work-year-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+
+        .recent-work-year-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .recent-work-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .recent-work-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .recent-work-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .recent-work-card-thumb {
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, #e8e6e1 0%, #ddd9d2 100%);
+            border-radius: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .recent-work-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .recent-work-card-name {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .recent-work-card-deliverable {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .recent-link {
+            color: var(--accent);
+            text-decoration: none;
+            margin-left: 0.25rem;
+        }
+
+        .recent-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Image Popup */
+        .image-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-popup img {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .image-popup-zoom-wrap {
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90vw;
+            max-height: 80vh;
+            touch-action: pinch-zoom;
+        }
+
+        .image-popup-zoom-wrap img {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            transition: transform 0.15s ease;
+            will-change: transform;
+        }
+
+        .image-popup-zoom-wrap img.zoomed {
+            max-width: none;
+            max-height: none;
+            cursor: grab;
+        }
+
+        .image-popup-zoom-wrap img.zoomed:active {
+            cursor: grabbing;
+        }
+
+        .image-popup-text {
+            color: #fff;
+            font-size: 0.875rem;
+            margin-top: 1.5rem;
+            opacity: 0.7;
+        }
+
+        /* Case Study Popup */
+        .case-study-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10010;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 40px;
+            cursor: pointer;
+        }
+
+        .case-study-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .case-study-popup-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 960px;
+            width: 100%;
+            max-height: 85vh;
+            cursor: default;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            transform: translateY(20px);
+            transition: transform 0.35s ease;
+        }
+
+        .case-study-popup.active .case-study-popup-card {
+            transform: translateY(0);
+        }
+
+        .case-study-popup-image {
+            position: relative;
+            background: #f5f3ef;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .case-study-popup-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .case-study-popup-body {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .case-study-popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #e0ddd8;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .case-study-popup-close:hover {
+            background: #f5f3ef;
+            border-color: #ccc;
+        }
+
+        .case-study-popup-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .case-study-popup-tag {
+            display: inline-flex;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid #e0ddd8;
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: #6b6b6b;
+        }
+
+        .case-study-popup-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-study-popup-title {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-study-popup-desc {
+            color: #6b6b6b;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .works-slide-image {
+            cursor: pointer;
+        }
+
+        .works-hero-image {
+            cursor: pointer;
+        }
+
+        /* Full Case Study Popup (like Recent Work layout) */
+        .case-study-popup--full {
+            padding: 2.5vw 2.5vw 0 2.5vw;
+            align-items: flex-start;
+            overflow: hidden;
+            transition: opacity 0.3s ease 0.1s;
+        }
+
+        .case-study-popup--full.active {
+            transition: opacity 0.3s ease 0s;
+        }
+
+        .case-study-popup--full .case-study-popup-card-full {
+            background: var(--bg-primary);
+            border-radius: 1rem 1rem 0 0;
+            width: 95vw;
+            height: calc(100vh - 2.5vw);
+            max-width: none;
+            max-height: none;
+            cursor: default;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            transform: translateY(100vh);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-popup-scroll-area {
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .case-study-popup.active .case-study-popup-card-full {
+            transform: translateY(0);
+        }
+
+        .case-study-popup--full .case-study-popup-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            transition: all 0.2s ease;
+            z-index: 10010;
+        }
+
+        .case-study-popup--full .case-study-popup-close:hover {
+            background: #f5f3ef;
+        }
+
+        .case-study-popup-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .case-study-popup-meta-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .case-study-popup-meta-name {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+            cursor: default;
+        }
+
+        .case-study-popup-meta-name a,
+        .case-study-popup-meta-name span {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .case-study-popup-meta-name a:hover {
+            color: var(--accent);
+        }
+
+        .case-study-popup-meta-name svg {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .case-study-popup-meta-wrap {
+            padding: 2rem 3rem 1.5rem;
+        }
+
+        .case-study-popup-meta-name:hover {
+            color: var(--accent);
+        }
+
+        .case-study-popup-hero-image {
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            object-fit: cover;
+            flex-shrink: 0;
+            padding: 0 3rem;
+            margin-bottom: 2rem;
+            box-sizing: border-box;
+        }
+
+        .case-study-popup-body-full {
+            display: flex;
+            padding: 0 3rem 2rem;
+        }
+
+        .case-study-popup-nav {
+            position: sticky;
+            top: 0;
+            width: 220px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            height: fit-content;
+            padding: 2rem 1.5rem 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .case-study-popup-nav a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+        }
+
+        .case-study-popup-nav a::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: transparent;
+            transition: background 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .case-study-popup-nav a:hover,
+        .case-study-popup-nav a.active {
+            color: var(--text-primary);
+        }
+
+        .case-study-popup-nav a:hover::before,
+        .case-study-popup-nav a.active::before {
+            background: var(--text-primary);
+        }
+
+        .case-study-popup-content-full {
+            flex: 1;
+            padding: 2rem 0 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            min-width: 0;
+        }
+
+        .case-study-popup-section {
+            scroll-margin-top: 2rem;
+        }
+
+        .case-study-popup-section-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .case-study-popup-section-text {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-popup-section-text p + p {
+            margin-top: 1rem;
+        }
+
+        .case-study-popup-section-text ul {
+            margin: 0.75rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .case-study-popup-section-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-popup-section-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .case-study-popup-section-images.single {
+            grid-template-columns: 1fr;
+        }
+
+        .case-study-popup-section-images img {
+            width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .case-study-popup-process-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .case-study-popup-process-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .case-study-popup-image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .case-study-popup-image-grid img {
+            width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .case-study-popup-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .case-study-popup-skill {
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            border: 1px solid #121212;
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: transparent;
+        }
+
+        .case-study-popup--full .case-study-popup-tag {
+            border: 1px solid #121212;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-popup-card {
+                grid-template-columns: 1fr;
+                max-height: 90vh;
+            }
+
+            .case-study-popup-image {
+                min-height: 240px;
+                max-height: 45vh;
+            }
+
+            .case-study-popup-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .case-study-popup--full {
+                padding: 2rem 0 0 0;
+            }
+
+            .case-study-popup--full .case-study-popup-card-full {
+                width: 100%;
+                height: calc(100vh - 2rem);
+                border-radius: 1rem 1rem 0 0;
+            }
+
+            .case-study-popup-body-full {
+                flex-direction: column;
+                padding: 0 1.5rem 2rem;
+            }
+
+            .case-study-popup-nav {
+                display: none;
+            }
+
+            .case-study-popup-content-full {
+                padding: 1.5rem 0;
+            }
+
+            .case-study-popup-hero-image {
+                padding: 0 1.5rem;
+            }
+
+            .case-study-popup-meta-wrap {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+
+            .case-study-popup-section-images {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-popup-image-grid,
+            .case-study-popup-process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             background: #111111;
             padding: 2.5rem 40px 0;
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
         }
@@ -631,7 +1449,7 @@
             height: 8px;
             background: #4ade80;
             border-radius: 0;
-            animation: slowBlink 2s ease-in-out infinite;
+            animation: glowPulse 3s ease-in-out infinite;
             flex-shrink: 0;
             margin-top: 0.2em;
         }
@@ -731,15 +1549,16 @@
 
         .footer-massive {
             font-family: 'Instrument Sans', sans-serif;
-            font-size: clamp(10rem, 24vw, 28rem);
+            font-size: 14.4vw;
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 0.75;
             color: #f5f5f5;
             white-space: nowrap;
-            width: 100%;
             text-align: center;
-            margin-bottom: -0.18em;
+            margin-bottom: 0;
+            margin-left: -40px;
+            width: max-content;
             user-select: none;
         }
 
@@ -766,6 +1585,15 @@
             }
         }
 
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 4px 2px rgba(74, 222, 128, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 14px 5px rgba(74, 222, 128, 0.5);
+            }
+        }
+
         /* Scroll Reveal */
         .reveal {
             opacity: 0;
@@ -778,74 +1606,453 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .work-card {
-                grid-template-columns: 1fr;
-                gap: 0;
-                min-height: auto;
+        /* 1280px+ Desktop */
+        @media (min-width: 1280px) {
+            /* Nav */
+            .logo-pill,
+            .nav-pill a,
+            .nav-cta {
+                font-size: 0.8rem;
             }
 
-            .work-image {
+            /* Hero */
+            .hero-typed {
+                font-size: 1.2rem;
+            }
+
+            .hero-massive {
+                font-size: 20vh;
+            }
+
+            /* Featured Works */
+            .works-title-left,
+            .works-title-right {
+                font-size: 5rem;
+            }
+
+            .works-hero-content .work-project-name {
+                font-size: 1.5rem;
+            }
+
+            .works-hero-content h3 {
+                font-size: 3rem;
+            }
+
+            .works-hero-content p {
+                font-size: 1rem;
+            }
+
+            .work-tag {
+                font-size: 0.8rem;
+            }
+
+            .work-cta {
+                font-size: 0.8rem;
+            }
+
+            /* About */
+            .about .section-title {
+                font-size: 3rem;
+            }
+
+            .about-content h2 {
+                font-size: 4rem;
+            }
+
+            .principle-card p {
+                font-size: 1rem;
+            }
+
+            .principle-card h3 {
+                font-size: 0.8rem;
+            }
+
+            /* Work cards (Service) */
+            .work-content h3 {
+                font-size: 3rem;
+            }
+
+            .work-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            /* Hero */
+            .hero {
+                height: 100vh;
+                padding: 4rem 24px 2rem;
+                align-items: center;
+            }
+            .hero-typed {
+                font-size: 1.5rem;
+                margin-top: 6vh;
+                gap: 3rem;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .hero-massive {
+                margin-top: auto;
+                margin-left: -24px;
+                margin-right: -24px;
+                width: calc(100% + 48px);
+                align-self: stretch;
+                font-size: 10rem;
+                letter-spacing: -0.02em;
+                line-height: 0.85;
+                white-space: nowrap;
+                overflow: hidden;
+                display: flex;
+            }
+            .hero-massive .hero-marquee-track {
+                display: flex;
+                flex-shrink: 0;
+                white-space: nowrap;
+                animation: heroMarquee 15s linear infinite;
+                will-change: transform;
+            }
+            @keyframes heroMarquee {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
+            }
+
+            /* Works Hero */
+            .works-hero {
+                height: 60vh;
+                display: flex;
+                align-items: flex-start;
+            }
+            .works-hero-split {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1rem;
+                padding: 5rem 0;
+                z-index: 3;
+            }
+            .works-text-left,
+            .works-text-right {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                transform: none;
+                font-size: 5rem;
+                padding: 0;
+                text-align: left;
+                line-height: 1;
+            }
+            .works-text-right {
+                order: 3;
+            }
+            .works-hero-image {
+                display: none;
+            }
+            .works-text-left,
+            .works-text-right {
+                opacity: 0;
+                animation: worksHeroRise 0.8s ease forwards;
+            }
+            .works-text-left { animation-delay: 0.1s; }
+            .works-text-right { animation-delay: 0.25s; }
+            @keyframes worksHeroRise {
+                from { opacity: 0; transform: translateY(40px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            /* Works Slides - no animation, just scroll */
+            .works-grid {
+                margin-bottom: 0;
+            }
+            .works-slide {
+                position: relative;
+                grid-template-columns: 1fr;
+                height: auto;
+                transform: none;
+            }
+            .works-slide-image {
                 min-height: 50vh;
                 order: -1;
             }
-
-            .work-content {
-                padding: 3rem 40px 3rem 0;
+            .works-slide-content {
+                height: auto;
+                padding: 3rem 24px;
+            }
+            .works-slide-content .work-cta {
+                margin-top: 2.5rem;
+            }
+            .works-divider {
+                display: none;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            /* Work Experience — 2 columns */
+            .exp-grid {
+                grid-template-columns: 1fr 1fr;
             }
 
+            /* Footer */
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                gap: 1.5rem;
+            }
+            .footer-contact {
+                order: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .footer-status {
+                order: 2;
+            }
+            .footer-contact a,
+            .footer-contact span {
+                font-size: 1rem;
+            }
+            .footer-status-text {
+                align-items: flex-start;
+                font-size: 1rem;
+            }
+            .footer-massive {
+                margin-top: auto;
+                margin-left: -24px;
+                margin-right: -24px;
+                width: calc(100% + 48px);
+                align-self: stretch;
+                font-size: 10rem;
+                letter-spacing: -0.02em;
+                line-height: 0.85;
+                white-space: nowrap;
+                overflow: hidden;
+                display: flex;
+            }
+            .footer-massive .footer-marquee-track {
+                display: flex;
+                flex-shrink: 0;
+                white-space: nowrap;
+                animation: footerMarquee 20s linear infinite;
+                will-change: transform;
+            }
+            @keyframes footerMarquee {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
+            }
+            footer {
+                padding: 2.5rem 24px 0;
+            }
+
+            /* Nav */
             .nav-pill,
             .nav-cta {
                 display: none;
             }
-
             .mobile-menu-btn {
                 display: block;
             }
-
             .nav-pill.open {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
                 top: calc(100% + 0.5rem);
-                left: 40px;
-                right: 40px;
+                left: 24px;
+                right: 24px;
                 background: rgba(255, 255, 255, 0.95);
                 border: 1px solid var(--border);
                 border-radius: 16px;
                 padding: 0.5rem;
                 box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             }
-
             .nav-pill.open a {
                 width: 100%;
                 justify-content: center;
                 padding: 0.75rem 1rem;
                 color: var(--text-primary);
             }
+            .mobile-nav-cta {
+                display: none;
+            }
+            .nav-pill.open .mobile-nav-cta {
+                display: inline-flex;
+                justify-content: center;
+                background: var(--accent);
+                color: #fff;
+                border-radius: 100px;
+                margin: 0.5rem;
+                padding: 0.75rem 1rem;
+                font-weight: 600;
+                width: calc(100% - 1rem);
+            }
+        }
+
+        @media (max-width: 900px) and (min-width: 769px) {
+            /* Client Logo — 4-col grid on tablet */
+        }
+
+        /* Client Logo — 4-col grid, static, no animation */
+        @media (max-width: 768px) {
+            .client-marquee {
+                margin: 0 -24px;
+                padding: 2.5rem 0 0 0;
+            }
+            .client-marquee-track {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+                animation: none;
+            }
+            .client-marquee-item {
+                padding: 0.75rem;
+                height: auto;
+            }
+            .client-marquee-item img {
+                max-width: 100%;
+            }
+
+            /* Recent Work — sidebar horizontal sticky */
+            .recent-work {
+                padding: 4rem 24px;
+            }
+            .recent-work-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .recent-work-sidebar {
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background: var(--bg-primary);
+                padding: 5rem 0 1rem 0;
+            }
+            .recent-work-sidebar h2 {
+                margin-bottom: 0.75rem;
+            }
+            .recent-work-years {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+            .recent-work-years a {
+                font-size: 1.25rem;
+            }
+            .recent-work-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* About — 100vh vertical, no padding on image */
+            .about {
+                padding: 0;
+            }
+            .about-stage {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                min-height: 100vh;
+            }
+            .about-text-layer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                height: 50vh;
+                padding: 4rem 24px 2rem;
+                justify-content: flex-start;
+            }
+            .about-line {
+                font-size: 2.5rem;
+            }
+            .about-profile-wrap {
+                grid-template-columns: 1fr;
+                gap: 0;
+                margin: 0;
+            }
+            .about-profile {
+                position: relative;
+                top: 0;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                margin: 0;
+            }
+            .about-details {
+                padding: 2rem 24px;
+            }
+            .about-line-2 {
+                text-align: left;
+            }
+
+            /* Works text sizes */
+            .works-text-left,
+            .works-text-right {
+                font-size: 5rem;
+            }
+
+            /* Case Study Popup */
+            .case-study-popup-card {
+                grid-template-columns: 1fr;
+                max-height: 90vh;
+            }
+            .case-study-popup-image {
+                min-height: 240px;
+                max-height: 45vh;
+            }
+            .case-study-popup-body {
+                padding: 2rem 1.5rem;
+            }
         }
 
         @media (max-width: 600px) {
             section {
-                padding: 4rem 40px;
+                padding: 4rem 24px;
             }
-
-            .principles-grid {
+            nav {
+                padding: 1rem 24px;
+            }
+            .about {
+                padding: 0;
+            }
+            .recent-work-cards {
                 grid-template-columns: 1fr;
             }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
+            .works-text-left,
+            .works-text-right {
+                font-size: 5rem;
             }
         }
-    </style>
+
+        @media (max-width: 480px) {
+            .works-text-left,
+            .works-text-right {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            section {
+                padding: 3rem 16px;
+            }
+            nav {
+                padding: 0.75rem 16px;
+            }
+            .hero-typed {
+                margin-top: 8vh;
+            }
+            .works-slide-content {
+                padding: 2rem 16px;
+            }
+            .works-text-left,
+            .works-text-right {
+                font-size: 5rem;
+            }
+        }
+
+        </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
@@ -853,11 +2060,12 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo-pill">Kalediosekop</a>
+        <a href="#hero" class="logo-pill">Kalediosekop</a>
         <ul class="nav-pill">
-            <li><a href="#works" class="active">Works</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#clients">Clients</a></li>
+            <li><a href="#works">Featured</a></li>
+            <li><a href="#recent-work">Work</a></li>
+            <li><a href="#about-profile">About</a></li>
+            <li><a href="#contact" class="mobile-nav-cta">Contact Me</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Let's Collaborate</a>
         <button class="mobile-menu-btn">☰</button>
@@ -878,275 +2086,366 @@
         <div class="hero-massive" id="hero-massive">Kalediosekop</div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-header reveal">
-            <div class="section-label">About</div>
-        </div>
-        <div class="about-content reveal">
-            <h2>
-                Halo, I'm <span>Dio</span>.<br><br>
-                I'm a Digital Product Designer with <span>7 years of experience</span>. Creating responsive web design to multi-platform custom applications.
-            </h2>
-        </div>
-
-        <div class="section-header reveal" style="margin-top: 5rem;">
-            <div class="section-label">My Principles of Work</div>
-        </div>
-        <div class="principles-grid">
-            <div class="principle-card reveal">
-                <h3>Adaptable</h3>
-                <p>Working from 0 → 1 Projects, or an ongoing project. I can manage and adapt to what's currently working and see if I can make an impact to improve it.</p>
-            </div>
-            <div class="principle-card reveal">
-                <h3>Experience Focused</h3>
-                <p>While UI Trends are evolving, I'm more focused on creating an easy, helpful, and tailored to the problem we're going to solve.</p>
-            </div>
-            <div class="principle-card reveal">
-                <h3>Scalability</h3>
-                <p>Working on project also need to think of other who'll continue it. Using component and readable documentation will help others help us.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid reveal">
-            <div class="stat-item">
-                <h3>7 Years</h3>
-                <p>Experience</p>
-            </div>
-            <div class="stat-item">
-                <h3>30+</h3>
-                <p>Clients</p>
-            </div>
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>Projects</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Works -->
     <section id="works">
-        <!-- Hero animation stage -->
+
+        <!-- Works Hero -->
         <div class="works-hero">
-            <div class="works-hero-stage">
-                <span class="works-title-left">Featured</span>
-                <div class="works-image-reveal">
-                    <img src="Asset/Home/Featured Work/FW - 1.png" alt="Common Store Co">
+            <div class="works-hero-split">
+                <span class="works-text-left">Featured</span>
+                <div class="works-hero-image" onclick="openCaseStudyPopup(document.querySelector('.works-slide[data-index=\"0\"]'))">
+                    <img class="work-img-default" src="Asset/Home/Featured Work/FW - 3.png" alt="Common Store Co">
+                    <img class="work-img-hover" src="Asset/Home/Featured Work/Common Store Co.png" alt="Common Store Co">
                 </div>
-                <span class="works-title-right">Works</span>
-            </div>
-            <div class="works-hero-content">
-                <div class="work-meta-row">
-                    <span class="work-tag">Website Design</span>
-                    <span class="work-tag">2026</span>
-                </div>
-                <div class="work-project-name">Common Store Co</div>
-                <h3>Make company website more recognized and memorable</h3>
-                <p>Common store co is an umbrella of several creatives brand. The brands are curated to create a feelings, to evoke personalize moments into everyday goods.</p>
-                <a href="#" class="work-cta">
-                    See Case Study
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
+                <span class="works-text-right">Works</span>
             </div>
         </div>
 
-        <!-- Remaining works -->
+        <!-- Works Slides -->
         <div class="works-grid">
-            <!-- Work 2: Harley Health -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Web Design</span>
-                    <h3>Get personalized Hair Loss treatment with better UX</h3>
-                    <p>Harley Health helps you get your personalized Hair Loss treatment. The redesign was made due to old looking template website, bad UX flow, and misplaced and misleading content.</p>
-                    <a href="#" class="work-cta">
+
+            <!-- Work 1: Common Store Co -->
+            <div class="works-slide" id="featured" data-index="0" data-project="Common Store Co" data-title="Company website memorable and becomes recognizable" data-desc="Common store co is an umbrella of several creatives brand. The brands are curated to create a feelings, to evoke personalize moments into everyday goods." data-tags="Website, Landing Page, 2026" data-img="Asset/Home/Featured Work/Common Store Co.png" data-fullcase="true">
+                <div class="works-slide-content">
+                    <div class="work-slide-text">
+                        <div class="work-meta-row">
+                            <span class="work-tag">Website</span>
+                            <span class="work-tag">Landing Page</span>
+                            <span class="work-tag">2026</span>
+                        </div>
+                        <div class="work-project-name">Common Store Co</div>
+                        <h3>Company website memorable and becomes recognizable</h3>
+                        <p>Common store co is an umbrella of several creatives brand. The brands are curated to create a feelings, to evoke personalize moments into everyday goods.</p>
+                    </div>
+                    <a href="javascript:void(0)" class="work-cta" onclick="event.preventDefault(); openCaseStudyPopup(this.closest('.works-slide'))">
                         See Case Study
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                     </a>
                 </div>
-                <div class="work-image">
-                    <span class="work-placeholder">💇</span>
+                <div class="works-slide-image" onclick="openCaseStudyPopup(this.closest('.works-slide'))">
+                    <img class="work-img-default" src="Asset/Home/Featured Work/FW - 3.png" alt="Common Store Co">
+                    <img class="work-img-hover" src="Asset/Home/Featured Work/Common Store Co.png" alt="Common Store Co">
                 </div>
             </div>
 
-            <!-- Work 3: Harley Portal -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Web Application</span>
-                    <h3>Unified portal for treatment management</h3>
-                    <p>Harley Portal was made for their admin to manage the clients treatments plan, resources, assessment, and prescription. We helped them integrate their portal with standalone store, merge all standalone user portal as one, and create easy and clear flow to use by all roles.</p>
-                    <a href="#" class="work-cta">
+            <!-- Work 2: C-Infra KAI Commuter -->
+            <div class="works-slide" data-index="1" data-project="C-Infra KAI Commuter" data-title="Real-time damage facility report for immediate follow-up" data-desc="C-Infra is a damage facility report used by KAI Commuter Indonesia. With over 800K people use commuter line in Jabodetabek, we streamline the report process." data-tags="User Experience Design, 2023" data-img="Asset/Home/Featured Work/KAI Commuter.png" data-fullcase="true">
+                <div class="works-slide-content">
+                    <div class="work-slide-text">
+                        <div class="work-meta-row">
+                            <span class="work-tag">Mobile Application</span>
+                            <span class="work-tag">2023</span>
+                        </div>
+                        <div class="work-project-name">C-Infra KAI Commuter</div>
+                        <h3>Real-time damage facility report for immediate follow-up</h3>
+                        <p>C-Infra is a damage facility report used by KAI Commuter Indonesia. With over 800K people use commuter line in Jabodetabek, we streamline the report process.</p>
+                    </div>
+                    <a href="javascript:void(0)" class="work-cta" onclick="event.preventDefault(); openCaseStudyPopup(this.closest('.works-slide'))">
                         See Case Study
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                     </a>
                 </div>
-                <div class="work-image">
-                    <span class="work-placeholder">🖥️</span>
+                <div class="works-slide-image" onclick="openCaseStudyPopup(this.closest('.works-slide'))">
+                    <img class="work-img-default" src="Asset/Home/Featured Work/FW - 4.png" alt="C-Infra KAI Commuter">
+                    <img class="work-img-hover" src="Asset/Home/Featured Work/KAI Commuter.png" alt="KAI Commuter">
                 </div>
             </div>
 
-            <!-- Work 4: VMS -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Web Application</span>
-                    <h3>Digitize guest book and appointment booking</h3>
-                    <p>VMS for DPRD Kab. Bandung Barat was a solution for several problem at once. We helped them digitize their guest book report, create better dashboard analysis, clarify meeting schedule, and enable faster online appointment booking.</p>
-                    <a href="#" class="work-cta">
+            <!-- Work 3: VMS -->
+            <div class="works-slide" data-index="2" data-project="Visitor Management System" data-title="Book and see meeting availability in real-time" data-desc="Visitor Management System is a whole app to monitor, look, and book meeting schedule. Designed to replace a manual schedule meeting via phone and offline visit." data-tags="Website, Dashboard, Application, 2025" data-img="Asset/Home/Featured Work/VMS.png" data-fullcase="true">
+                <div class="works-slide-content">
+                    <div class="work-slide-text">
+                        <div class="work-meta-row">
+                            <span class="work-tag">Website</span>
+                            <span class="work-tag">Dashboard</span>
+                            <span class="work-tag">Application</span>
+                            <span class="work-tag">2025</span>
+                        </div>
+                        <div class="work-project-name">Visitor Management System</div>
+                        <h3>Book and see meeting availability in real-time</h3>
+                        <p>Visitor Management System is a whole app to monitor, look, and book meeting schedule. Designed to replace a manual schedule meeting via phone and offline visit.</p>
+                    </div>
+                    <a href="javascript:void(0)" class="work-cta" onclick="event.preventDefault(); openCaseStudyPopup(this.closest('.works-slide'))">
                         See Case Study
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                     </a>
                 </div>
-                <div class="work-image">
-                    <span class="work-placeholder">📋</span>
-                </div>
-            </div>
-
-            <!-- Work 5: Facility Damage Report -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Mobile Application</span>
-                    <h3>Faster response to public transportation damage</h3>
-                    <p>In Jakarta, Commuter line used by 800K people a day. This app helps digitize their paper based reports, clearing their report transparency, and enabling faster and almost real-time response to damage report.</p>
-                    <a href="#" class="work-cta">
-                        See Case Study
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                    </a>
-                </div>
-                <div class="work-image">
-                    <span class="work-placeholder">🚆</span>
-                </div>
-            </div>
-
-            <!-- Work 6: Caregiver App -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Mobile Application</span>
-                    <h3>Monitor patient behaviour with quick documentation</h3>
-                    <p>This application monitors how a caregiver would document the patient's behaviour and detail. The App can record their activity within a quick steps including patients data, dietary monitor, urine, hygiene, activity, and mood.</p>
-                    <a href="#" class="work-cta">
-                        See Case Study
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                    </a>
-                </div>
-                <div class="work-image">
-                    <span class="work-placeholder">🏥</span>
-                </div>
-            </div>
-
-            <!-- Work 7: Health Monitor App -->
-            <div class="work-card reveal">
-                <div class="work-content">
-                    <span class="work-tag">Mobile Application</span>
-                    <h3>Build healthy habit for office workers</h3>
-                    <p>This application monitors your health tailored for office worker who do long sitting or inactive movements. This App can track your activity and make a new habit to have a new and continuous healthy lifestyle.</p>
-                    <a href="#" class="work-cta">
-                        See Case Study
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                    </a>
-                </div>
-                <div class="work-image">
-                    <span class="work-placeholder">❤️</span>
+                <div class="works-slide-image" onclick="openCaseStudyPopup(this.closest('.works-slide'))">
+                    <img class="work-img-default" src="Asset/Home/Featured Work/FW - 1.png" alt="Visitor Management System">
+                    <img class="work-img-hover" src="Asset/Home/Featured Work/VMS.png" alt="VMS">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <div class="reveal">
-            <h2>More detail at</h2>
-            <p>Explore the full case studies and detailed design process behind each project.</p>
-            <a href="https://bit.ly/kalediosekop-portfolio" target="_blank" class="cta-button">
-                View Full Portfolio
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-        </div>
-    </section>
+    <div class="works-divider"></div>
 
     <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <div class="section-header reveal">
-            <div class="section-label">Collaborations</div>
-            <h2 class="section-title">Clients</h2>
+    <section id="clients">
+        <div class="client-marquee">
+            <div class="client-marquee-track">
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - MOKU.png" alt="MOKU"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - GITS.png" alt="GITS"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Skilvul.png" alt="Skilvul"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Pocari Sweat.png" alt="Pocari Sweat"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Prodia.png" alt="Prodia"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - ASTRA.png" alt="ASTRA"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - KAI.png" alt="KAI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - RZ.png" alt="Rumah Zakat"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Harley.png" alt="Harley"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Bano.png" alt="Bano"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Peache.png" alt="Peache"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - NF.png" alt="Noodle Face"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Airisu.png" alt="Airisu"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - BRI.png" alt="BRI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Iori.png" alt="IORI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - SynergyCP.png" alt="SynergyCP"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Pertamina.png" alt="Pertamina"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - BUMA.png" alt="BUMA"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - LCC.png" alt="LCC"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Sarihusada.png" alt="Sarihusada"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - DW.png" alt="DW"></div>
+                <!-- duplicate set for seamless loop -->
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - MOKU.png" alt="MOKU"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - GITS.png" alt="GITS"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Skilvul.png" alt="Skilvul"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Pocari Sweat.png" alt="Pocari Sweat"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Prodia.png" alt="Prodia"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - ASTRA.png" alt="ASTRA"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - KAI.png" alt="KAI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - RZ.png" alt="Rumah Zakat"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Harley.png" alt="Harley"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Bano.png" alt="Bano"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Peache.png" alt="Peache"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - NF.png" alt="Noodle Face"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Airisu.png" alt="Airisu"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - BRI.png" alt="BRI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Iori.png" alt="IORI"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - SynergyCP.png" alt="SynergyCP"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Pertamina.png" alt="Pertamina"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - BUMA.png" alt="BUMA"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - LCC.png" alt="LCC"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - Sarihusada.png" alt="Sarihusada"></div>
+                <div class="client-marquee-item"><img src="Asset/Home/Client/Client - DW.png" alt="DW"></div>
+            </div>
         </div>
-        <div class="clients-grid">
-            <div class="client-category reveal">
-                <h3>Freelance</h3>
-                <ul class="client-list">
-                    <li>AMStudio</li>
-                    <li>Aksamaia</li>
-                    <li>Miraj Vardhana</li>
-                    <li>VMS</li>
-                    <li>Augustea Intcrew</li>
-                    <li>EATSII</li>
-                    <li>Kawan Secuan
-                        <div class="sub-item">Cloud Kitchen</div>
-                    </li>
-                    <li>WIT
-                        <div class="sub-item">GSINC</div>
-                    </li>
-                    <li>Wtih White
-                        <div class="sub-item">White branding</div>
-                        <div class="sub-item">Lorin hotel</div>
-                    </li>
-                    <li>Solenne
-                        <div class="sub-item">Linda</div>
-                    </li>
-                    <li>IORI
-                        <div class="sub-item">Puppa</div>
-                        <div class="sub-item">IORI logo</div>
-                        <div class="sub-item">Blue house</div>
-                    </li>
-                    <li>Rumah Zakat</li>
-                    <li>MOKU</li>
-                </ul>
+    </section>
+    <!-- Recent Work Section -->
+    <section class="recent-work" id="recent-work">
+        <div class="recent-work-grid">
+            <div class="recent-work-sidebar">
+                <h2>Recent Work</h2>
+                <div class="recent-work-years">
+                    <a href="#year-2026" class="active">2026</a>
+                    <a href="#year-2025">2025</a>
+                    <a href="#year-2024">2024</a>
+                </div>
             </div>
-
-            <div class="client-category reveal">
-                <h3>Internal</h3>
-                <ul class="client-list">
-                    <li>Peache</li>
-                    <li>Airisu</li>
-                    <li>Fugu</li>
-                    <li>MOKU Group</li>
-                </ul>
+            <div class="recent-work-content">
+                <div class="recent-work-year-section" id="year-2026">
+                    <div class="recent-work-year-title">2026</div>
+                    <div class="recent-work-cards">
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Harley Portal.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Harley Portal.png" alt="Harley Portal"></div>
+                            <div class="recent-work-card-name">Harley Portal</div>
+                            <div class="recent-work-card-deliverable">UIUX</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Common Store Co.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Common Store Co.png" alt="Common Store Co"></div>
+                            <div class="recent-work-card-name">Common Store Co <a href="http://thecommonstore.co/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/BANO Pastries.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/BANO Pastries.png" alt="BANO Pastries"></div>
+                            <div class="recent-work-card-name">BANO Pastries <a href="http://banopastries.com.au/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Shopify</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/MOKU Group.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/MOKU Group.png" alt="MOKU Group"></div>
+                            <div class="recent-work-card-name">MOKU Group</div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/FUGU Studio.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/FUGU Studio.png" alt="FUGU Studio"></div>
+                            <div class="recent-work-card-name">FUGU Studio <a href="https://www.fugu-studio.com/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Shopify</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-work-year-section" id="year-2025">
+                    <div class="recent-work-year-title">2025</div>
+                    <div class="recent-work-cards">
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Airisu.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Airisu.png" alt="Airisu"></div>
+                            <div class="recent-work-card-name">Airisu <a href="https://airisu.com.au/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Shopify</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Office Health.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Office Health.png" alt="Office Health"></div>
+                            <div class="recent-work-card-name">Office Health</div>
+                            <div class="recent-work-card-deliverable">Mobile Concept</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Visitor Management System.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Visitor Management System.png" alt="Visitor Management System"></div>
+                            <div class="recent-work-card-name">Visitor Management System</div>
+                            <div class="recent-work-card-deliverable">UIUX</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Noodle Face.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Noodle Face.png" alt="Noodle Face"></div>
+                            <div class="recent-work-card-name">Noodle Face</div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Air Arabia.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Air Arabia.png" alt="Air Arabia"></div>
+                            <div class="recent-work-card-name">Air Arabia</div>
+                            <div class="recent-work-card-deliverable">Redesign Concept</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Harley Health.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Harley Health.png" alt="Harley Health"></div>
+                            <div class="recent-work-card-name">Harley Health <a href="https://harleyhealth.com.au/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Bardi.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Bardi.png" alt="Bardi"></div>
+                            <div class="recent-work-card-name">Bardi</div>
+                            <div class="recent-work-card-deliverable">Redesign Concept</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-work-year-section" id="year-2024">
+                    <div class="recent-work-year-title">2024</div>
+                    <div class="recent-work-cards">
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Blue House.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Blue House.png" alt="Blue House"></div>
+                            <div class="recent-work-card-name">Blue House</div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Peache Studio.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Peache Studio.png" alt="Peache Studio"></div>
+                            <div class="recent-work-card-name">Peache Studio <a href="https://peachestudio.com/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Shopify</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Synbiome.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Synbiome.png" alt="Synbiome"></div>
+                            <div class="recent-work-card-name">Synbiome</div>
+                            <div class="recent-work-card-deliverable">Shopify</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Care Giver.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Care Giver.png" alt="Care Giver"></div>
+                            <div class="recent-work-card-name">Care Giver</div>
+                            <div class="recent-work-card-deliverable">Mobile Concept</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/MyMedia Agency.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/MyMedia Agency.png" alt="MyMedia Agency"></div>
+                            <div class="recent-work-card-name">MyMedia Agency</div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                        <div class="recent-work-card" onclick="openImagePopup('Asset/Home/Works/Chiao\'s Cafe.png')">
+                            <div class="recent-work-card-thumb"><img src="Asset/Home/Works/Chiao's Cafe.png" alt="Chiao's Cafe"></div>
+                            <div class="recent-work-card-name">Chiao&rsquo;s Cafe <a href="https://www.chiaoscafe.com.au/" target="_blank" onclick="event.stopPropagation()" class="recent-link">↗</a></div>
+                            <div class="recent-work-card-deliverable">Website</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="client-category reveal">
-                <h3>Client</h3>
-                <ul class="client-list">
-                    <li>Chiaos</li>
-                    <li>Madam Kim</li>
-                    <li>Synbiome</li>
-                    <li>Noodle Face</li>
-                    <li>Harley Health</li>
-                    <li>Bowan</li>
-                    <li>Life Changing Care</li>
-                    <li>Diamond Whales</li>
-                </ul>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-stage">
+            <div class="about-text-layer">
+                <div class="about-line about-line-1">When everything<br>is made by AI</div>
+                <div class="about-line about-line-2">Let's humanize<br>our approach 👋</div>
             </div>
-
-            <div class="client-category reveal">
-                <h3>GITS</h3>
-                <ul class="client-list">
-                    <li>Astra (2)</li>
-                    <li>Prodia (1)</li>
-                    <li>BUMA (1)</li>
-                    <li>eNutri Sarihusada (1)</li>
-                    <li>Pocari (1)</li>
-                    <li>VIVA Apotek (1)</li>
-                    <li>GBK (1)</li>
-                    <li>Muslimlife (2)</li>
-                    <li>Pertamina (2)</li>
-                    <li>KAI Commuter (1)</li>
-                    <li>BRI (1)</li>
-                    <li>SANF</li>
-                    <li>LOTS - Lotus Sekuritas (1)</li>
-                    <li>Frissian Flag (2)</li>
-                    <li>Maximus (1)</li>
-                </ul>
+            <div class="about-profile-wrap" id="about-profile">
+                <div class="about-profile">
+                    <img src="Asset/Home/Dio Profile Picture.png" alt="Dio Profile Picture">
+                </div>
+                <div class="about-details">
+                    <h2>Halo, I'm Dio!</h2>
+                    <p>My name is Ardhiya Febrian Rachman, you can call me by Dio, from Indonesia. Thanks for stopping by my profile and considering me for your next project.</p>
+                    <p>I started my study as a Software Engineer then shift into Graphic Designer, doing social media and branding design. And with that background I'm well familiar with how a developer work with logic and frameworks also how branding affects to an application.</p>
+                    <div class="skills-tools-grid">
+                        <div class="skills-tools-col">
+                            <h3>Skills</h3>
+                            <div class="chips-wrap">
+                                <span class="chip">Product Discovery</span>
+                                <span class="chip">Design Thinking</span>
+                                <span class="chip">User Research</span>
+                                <span class="chip">Forum Group Discussion</span>
+                                <span class="chip">Flow Diagram</span>
+                                <span class="chip">Affinity Mapping</span>
+                                <span class="chip">Wireframing</span>
+                                <span class="chip">Microcopy &amp; Copywriting</span>
+                                <span class="chip">UI Design</span>
+                                <span class="chip">Design System</span>
+                                <span class="chip">Prototyping</span>
+                                <span class="chip">Vibe Coding</span>
+                                <span class="chip">Design Documentation</span>
+                                <span class="chip">Presentation</span>
+                                <span class="chip">Graphic Design</span>
+                                <span class="chip">Brand Design</span>
+                            </div>
+                        </div>
+                        <div class="skills-tools-col">
+                            <h3>Tools</h3>
+                            <div class="chips-wrap">
+                                <span class="chip">Figma</span>
+                                <span class="chip">Figjam</span>
+                                <span class="chip">Miro</span>
+                                <span class="chip">Balsamic</span>
+                                <span class="chip">Google Analytics</span>
+                                <span class="chip">Adobe Illustrator</span>
+                                <span class="chip">Adobe Photoshop</span>
+                                <span class="chip">Affinity</span>
+                                <span class="chip">Claude</span>
+                                <span class="chip">Gemini</span>
+                                <span class="chip">Shopify</span>
+                    </div>
+                </div>
+                <div class="work-experience">
+                    <h3>Work Experience</h3>
+                    <div class="exp-grid">
+                        <div class="exp-item">
+                            <div class="exp-date">2024 &mdash; Present</div>
+                            <div class="exp-company">MOKU Digital</div>
+                            <div class="exp-role">Web Designer</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2026</div>
+                            <div class="exp-company">Solenne Bloom <span class="exp-freelance">(Freelance)</span></div>
+                            <div class="exp-role">Mockup Designer</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2025</div>
+                            <div class="exp-company">IORI <span class="exp-freelance">(Freelance)</span></div>
+                            <div class="exp-role">UIUX Designer</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2024</div>
+                            <div class="exp-company">Segudang Creatives <span class="exp-freelance">(Freelance)</span></div>
+                            <div class="exp-role">Graphic Designer</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2019 &mdash; 2024</div>
+                            <div class="exp-company">GITS ID</div>
+                            <div class="exp-role">Sr. UX Designer</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2022 &mdash; 2023</div>
+                            <div class="exp-company">Skilvul <span class="exp-freelance">(Freelance)</span></div>
+                            <div class="exp-role">UIUX Mentor</div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-date">2022 &mdash; 2023</div>
+                            <div class="exp-company">Rumah Zakat <span class="exp-freelance">(Freelance)</span></div>
+                            <div class="exp-role">Digital Consultant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1155,19 +2454,19 @@
     <footer id="contact">
         <div class="footer-top">
             <div class="footer-contact">
-                <a href="tel:+6289682846460">+62 896 828 46460</a>
-                <a href="mailto:ardhiyafebrianr@gmail.com">ardhiyafebrianr@gmail.com</a>
-                <a href="https://instagram.com/kalediosekop" target="_blank">@kalediosekop</a>
+                <a href="#" class="wa-link" onclick="return openWa(event)">WhatsApp</a>
+                <a href="mailto:ardhiyafebrianr@gmail.com?subject=Collaboration%20Inquiries%20-%20Kalediosekop">Email</a>
+                <a href="https://instagram.com/kalediosekop" target="_blank">Instagram</a>
             </div>
             <div class="footer-status">
                 <span class="footer-status-dot"></span>
                 <div class="footer-status-text">
-                    <span>Available for Contract, Part-Time, and Freelance.</span>
+                    <span>Available for freelance, part-time, contract</span>
                     <span>&copy;2026</span>
                 </div>
             </div>
         </div>
-        <div class="footer-massive">Thank You</div>
+        <div class="footer-massive">Contact Me</div>
     </footer>
 
     <!-- Let's Talk cursor follower -->
@@ -1179,86 +2478,227 @@
     </div>
 
     <script>
-        // ===== SCROLL TRIGGER: HERO MASSIVE TEXT SLIDE =====
+        // ===== FULL-WIDTH FIT TEXT =====
+        function fitTextToViewport(selector) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+            const mobile = window.innerWidth <= 900;
+            if (mobile && (selector === '#hero-massive' || selector === '.footer-massive')) return;
+            el.style.fontSize = '';
+            const targetWidth = document.documentElement.clientWidth;
+            const currentSize = parseFloat(window.getComputedStyle(el).fontSize);
+            const currentWidth = el.scrollWidth;
+            if (!currentWidth || !currentSize) return;
+            const idealSize = currentSize * (targetWidth / currentWidth);
+            el.style.fontSize = idealSize + 'px';
+        }
+        function fitAllText() {
+            fitTextToViewport('#hero-massive');
+            fitTextToViewport('.footer-massive');
+        }
+        window.addEventListener('load', fitAllText);
+        window.addEventListener('resize', fitAllText);
+
+
         gsap.registerPlugin(ScrollTrigger);
 
-        const heroSection = document.querySelector('.hero');
+        // ===== HERO APPEAR ANIMATION =====
+        const navEl = document.querySelector('nav');
         const heroMassive = document.getElementById('hero-massive');
+        const heroTypedLines = document.querySelectorAll('.hero-typed-line');
 
-        gsap.fromTo(heroMassive,
-            { x: '25vw' },
-            {
-                x: '-25vw',
-                ease: 'none',
+        const heroAppearTl = gsap.timeline();
+
+        heroAppearTl
+            .fromTo(navEl,
+                { y: -100, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+            )
+            .fromTo(heroMassive,
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+                '-=0.5'
+            )
+            .fromTo(heroTypedLines,
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.15 },
+                '-=0.6'
+            );
+
+        // ===== CHECK MOBILE =====
+        const isMobile = window.innerWidth <= 900;
+
+        // ===== MOBILE TEXT MODIFICATION =====
+        function updateMobileText() {
+            const mobile = window.innerWidth <= 900;
+            const heroEl = document.getElementById('hero-massive');
+            const footerEl = document.querySelector('.footer-massive');
+            if (heroEl) {
+                if (mobile) {
+                    heroEl.innerHTML = '<div class="hero-marquee-track"><span>Kalediosekop&nbsp;</span><span>Kalediosekop&nbsp;</span></div>';
+                    heroEl.style.whiteSpace = 'nowrap';
+                } else {
+                    heroEl.innerHTML = 'Kalediosekop';
+                    heroEl.style.whiteSpace = 'nowrap';
+                }
+            }
+            if (footerEl) {
+                if (mobile) {
+                    footerEl.innerHTML = '<div class="footer-marquee-track"><span>Contact Me&nbsp;</span><span>Contact Me&nbsp;</span></div>';
+                    footerEl.style.whiteSpace = 'nowrap';
+                } else {
+                    footerEl.innerHTML = 'Contact Me';
+                    footerEl.style.whiteSpace = 'nowrap';
+                }
+            }
+            if (mobile) {
+                if (heroEl) { heroEl.style.marginLeft = ''; heroEl.style.width = ''; heroEl.style.textAlign = ''; heroEl.style.fontSize = ''; }
+                if (footerEl) { footerEl.style.marginLeft = ''; footerEl.style.width = ''; footerEl.style.textAlign = ''; footerEl.style.fontSize = ''; }
+            } else {
+                if (heroEl) { heroEl.style.marginLeft = ''; heroEl.style.width = ''; heroEl.style.textAlign = ''; heroEl.style.fontSize = ''; }
+                if (footerEl) { footerEl.style.marginLeft = ''; footerEl.style.width = ''; footerEl.style.textAlign = ''; }
+            }
+        }
+        updateMobileText();
+        window.addEventListener('resize', updateMobileText);
+
+        // ===== WORKS HERO SCROLL =====
+        const worksHero = document.querySelector('.works-hero');
+        const worksTextLeft = document.querySelector('.works-text-left');
+        const worksTextRight = document.querySelector('.works-text-right');
+        const worksHeroImage = document.querySelector('.works-hero-image');
+
+        if (worksHero && !isMobile) {
+            gsap.set(worksHeroImage, { width: 0, height: 0, xPercent: -50, yPercent: -50 });
+
+            const heroTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: heroSection,
+                    trigger: worksHero,
                     start: 'top top',
-                    end: '+=100%',
+                    end: '+=300%',
                     pin: true,
                     scrub: 1,
+                }
+            });
+
+            // Phase 1: Image grows to 4:5 at center, text splits apart
+            heroTl.to(worksHeroImage, { width: '36vw', height: '45vw', ease: 'none' }, 0.05);
+            heroTl.to(worksTextLeft, { x: '-40vw', ease: 'none' }, 0.05);
+            heroTl.to(worksTextRight, { x: '40vw', ease: 'none' }, 0.05);
+
+            // Phase 2: Image moves to right side, text fully exits
+            heroTl.to(worksHeroImage, { top: '50%', left: '75%', width: '50vw', height: '100vh', ease: 'none' }, 0.25);
+            heroTl.to(worksTextLeft, { x: '-70vw', ease: 'none' }, 0.25);
+            heroTl.to(worksTextRight, { x: '70vw', ease: 'none' }, 0.25);
+        }
+
+
+        // ===== WORKS SLIDES SCROLL =====
+        const worksGrid = document.querySelector('.works-grid');
+        const workSlides = document.querySelectorAll('.works-slide');
+
+        if (worksGrid && workSlides.length >= 1 && !isMobile) {
+            const transitions = workSlides.length - 1;
+            const slideTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: worksGrid,
+                    start: 'top top',
+                    end: '+=' + ((transitions > 0 ? transitions : 1) * 200) + '%',
+                    pin: true,
+                    scrub: 1,
+                }
+            });
+
+            for (let i = 1; i < workSlides.length; i++) {
+                slideTl.fromTo(workSlides[i],
+                    { y: '100%' },
+                    { y: '0%', ease: 'none' },
+                    i - 1
+                );
+            }
+        }
+
+
+        // ===== ABOUT SECTION SCROLL REVEALS =====
+        const aboutLine1 = document.querySelector('.about-line-1');
+        const aboutLine2 = document.querySelector('.about-line-2');
+        const aboutProfile = document.querySelector('.about-profile');
+        const aboutDetails = document.querySelector('.about-details');
+        const aboutProfileWrap = document.querySelector('.about-profile-wrap');
+
+        // About lines appear from bottom
+        gsap.fromTo(aboutLine1,
+            { opacity: 0, y: 60 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+              scrollTrigger: { trigger: aboutLine1, start: 'top 90%', toggleActions: 'play none none reverse' }
+            }
+        );
+
+        gsap.fromTo(aboutLine2,
+            { opacity: 0, y: 60 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.15, ease: 'power3.out',
+              scrollTrigger: { trigger: aboutLine2, start: 'top 90%', toggleActions: 'play none none reverse' }
+            }
+        );
+
+        // Profile image slides in from bottom
+        gsap.fromTo(aboutProfile,
+            { opacity: 0, y: 80 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: aboutProfileWrap,
+                    start: 'top 50%',
+                    toggleActions: 'play none none reverse'
                 }
             }
         );
 
-
-        // ===== SCROLL TRIGGER: FEATURED WORKS SPLIT =====
-        const worksHero = document.querySelector('.works-hero');
-        const worksTitleLeft = document.querySelector('.works-title-left');
-        const worksTitleRight = document.querySelector('.works-title-right');
-        const worksImageReveal = document.querySelector('.works-image-reveal');
-        const worksHeroContent = document.querySelector('.works-hero-content');
-
-        const worksTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: worksHero,
-                start: 'top top',
-                end: '+=200%',
-                pin: true,
-                scrub: 1,
+        // About details children stagger reveal
+        const aboutDetailItems = document.querySelectorAll('.about-details > *');
+        gsap.fromTo(aboutDetailItems,
+            { opacity: 0, y: 60 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: aboutProfileWrap,
+                    start: 'top 50%',
+                    toggleActions: 'play none none reverse'
+                }
             }
+        );
+
+        // Recent Work cards stagger reveal
+        document.querySelectorAll('.recent-work-year-section').forEach(section => {
+            const cards = section.querySelectorAll('.recent-work-card');
+            gsap.fromTo(cards,
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.12,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 75%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
         });
 
-        // Phase 1: Image expands from center, words push apart
-        worksTl.fromTo(worksImageReveal,
-            { width: '0%', xPercent: -50 },
-            { width: '35%', xPercent: -50, ease: 'none' },
-            0
-        );
-        worksTl.fromTo(worksTitleLeft,
-            { x: 0 },
-            { x: '-25vw', ease: 'none' },
-            0
-        );
-        worksTl.fromTo(worksTitleRight,
-            { x: 0 },
-            { x: '25vw', ease: 'none' },
-            0
-        );
 
-        // Phase 2: Words exit off-screen, image shifts to right half
-        worksTl.to(worksTitleLeft,
-            { x: '-70vw', ease: 'none' },
-            0.35
-        );
-        worksTl.to(worksTitleRight,
-            { x: '70vw', ease: 'none' },
-            0.35
-        );
-        worksTl.to(worksImageReveal,
-            { width: '50%', xPercent: 0, ease: 'none' },
-            0.35
-        );
-
-        // Phase 3: Left content appears
-        worksTl.fromTo(worksHeroContent,
-            { opacity: 0, x: -60 },
-            { opacity: 1, x: 0, ease: 'none', onStart: () => worksHeroContent.classList.add('active') },
-            0.7
-        );
 
 
         // ===== SCROLL REVEAL =====
-        const revealElements = document.querySelectorAll('.reveal');
+        const revealElements = document.querySelectorAll('.reveal:not(.work-card)');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1281,14 +2721,16 @@
 
 
         // ===== ACTIVE NAV LINK ON SCROLL =====
-        const sections = document.querySelectorAll('section[id], footer[id]');
         const navLinks = document.querySelectorAll('.nav-pill a');
+        const navTargets = Array.from(navLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(Boolean);
         window.addEventListener('scroll', () => {
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+            navTargets.forEach(el => {
+                if (scrollY >= el.offsetTop - 200) {
+                    current = el.getAttribute('id');
                 }
             });
             navLinks.forEach(link => {
@@ -1344,6 +2786,558 @@
             }
         }, 100);
 
+
+        // ===== IMAGE POPUP =====
+        // WhatsApp link decoder (obfuscates number from bots)
+        function openWa(e) {
+            e.preventDefault();
+            const p = [98, 115, 111, 97, 101, 97, 110, 111]; // dummy
+            // real decode: pieces assembled at runtime
+            const _0x6e1f = ['eA==','eQ==','dHk=','L2E=','d3d3'];
+            const n = [[54,50],[56,57,54],[56,50,56],[52,54,52],[54,48]];
+            let num = '';
+            n.forEach(g => { g.forEach(c => { num += String.fromCharCode(c); }); });
+            window.open('https://wa.me/' + num, '_blank');
+            return false;
+        }
+
+        function openImagePopup(src) {
+            let popup = document.getElementById('image-popup');
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.id = 'image-popup';
+                popup.className = 'image-popup';
+                popup.innerHTML = '<div class="image-popup-zoom-wrap"><img id="popup-img" src="" alt=""></div><div class="image-popup-text">Scroll to zoom · Click image to reset · Click backdrop to close</div>';
+                document.body.appendChild(popup);
+                popup.addEventListener('click', function(e) {
+                    if (e.target === popup) closeImagePopup();
+                });
+
+                const img = popup.querySelector('#popup-img');
+                const wrap = popup.querySelector('.image-popup-zoom-wrap');
+                const minScale = 1;
+                const maxScale = 6;
+                const step = 0.25;
+
+                function resetZoom() {
+                    img.classList.remove('zoomed');
+                    img.style.transform = '';
+                    img.style.transformOrigin = '';
+                    img.dataset.scale = '1';
+                    wrap.scrollTop = 0;
+                    wrap.scrollLeft = 0;
+                }
+
+                img.dataset.scale = '1';
+
+                // Scroll to zoom in/out, omnidirectional (zoom towards cursor)
+                wrap.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    let scale = parseFloat(img.dataset.scale);
+
+                    const rect = img.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                    if (e.deltaY < 0) {
+                        scale = Math.min(maxScale, scale + step);
+                    } else {
+                        scale = Math.max(minScale, scale - step);
+                    }
+
+                    if (scale > 1) {
+                        img.classList.add('zoomed');
+                        img.style.transform = 'scale(' + scale + ')';
+                        img.style.transformOrigin = x + '% ' + y + '%';
+                    } else {
+                        resetZoom();
+                    }
+                    img.dataset.scale = scale;
+                }, { passive: false });
+
+                // Click image to exit zoom/reset
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (parseFloat(img.dataset.scale) > 1) {
+                        resetZoom();
+                    }
+                });
+            }
+            const img = popup.querySelector('#popup-img');
+            img.src = src;
+            img.classList.remove('zoomed');
+            img.style.transform = '';
+            img.style.transformOrigin = '';
+            img.dataset.scale = '1';
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImagePopup() {
+            const popup = document.getElementById('image-popup');
+            if (popup) {
+                popup.classList.remove('active');
+                const img = popup.querySelector('#popup-img');
+                if (img) {
+                    img.classList.remove('zoomed');
+                    img.style.transform = '';
+                    img.style.transformOrigin = '';
+                    img.dataset.scale = '1';
+                }
+                document.body.style.overflow = '';
+            }
+        }
+
+        // ===== CASE STUDY POPUP =====
+        function openCaseStudyPopup(slide) {
+            if (!slide) return;
+
+            const isFullCase = slide.dataset.fullcase === 'true';
+            if (isFullCase) {
+                renderFullCaseStudy(slide);
+                return;
+            }
+
+            const project = slide.dataset.project;
+            const title = slide.dataset.title;
+            const desc = slide.dataset.desc;
+            const tags = slide.dataset.tags.split(',').map(t => t.trim());
+            const img = slide.dataset.img;
+
+            let popup = document.getElementById('case-study-popup');
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.id = 'case-study-popup';
+                popup.className = 'case-study-popup';
+                document.body.appendChild(popup);
+            }
+
+            const tagsHtml = tags.map(t => `<span class="case-study-popup-tag">${t}</span>`).join('');
+
+            popup.innerHTML = `
+                <div class="case-study-popup-card" onclick="event.stopPropagation()">
+                    <div class="case-study-popup-image">
+                        <img src="${img}" alt="${project}">
+                    </div>
+                    <div class="case-study-popup-body">
+                        <button class="case-study-popup-close" onclick="closeCaseStudyPopup()">✕</button>
+                        <div class="case-study-popup-tags">${tagsHtml}</div>
+                        <div class="case-study-popup-name">${project}</div>
+                        <h3 class="case-study-popup-title">${title}</h3>
+                        <p class="case-study-popup-desc">${desc}</p>
+                    </div>
+                </div>
+            `;
+
+            requestAnimationFrame(() => {
+                popup.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) closeCaseStudyPopup();
+            });
+        }
+
+        function renderFullCaseStudy(slide) {
+            const project = slide.dataset.project;
+            const tags = slide.dataset.tags.split(',').map(t => t.trim());
+            const img = slide.dataset.img;
+
+            let popup = document.getElementById('case-study-popup');
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.id = 'case-study-popup';
+                popup.className = 'case-study-popup';
+                document.body.appendChild(popup);
+            }
+            popup.classList.add('case-study-popup--full');
+
+            const tagsHtml = tags.map(t => `<span class="case-study-popup-tag">${t}</span>`).join('');
+            const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+
+            let projectLinkHtml, heroImageSrc, sectionsHtml;
+
+            if (project === 'Common Store Co') {
+                const basePath = "Asset/Home/Featured Work/FW - 1";
+                projectLinkHtml = `<a href="https://thecommonstore.co" target="_blank" onclick="event.stopPropagation()">${project}</a>`;
+                heroImageSrc = "Asset/Home/Featured Work/FW - 3.png";
+                sectionsHtml = `
+                            <div class="case-study-popup-section" id="cs-bg">
+                                <div class="case-study-popup-section-title">Background</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>Common Store Co is an umbrella of several creatives brand. The brands are developed and curated to invoke feelings and reminisce about personal memories in everyday goods.</p>
+                                    <p>Currently, the brand identity hasn't proven to be like that. By this statement, the brand itself needed a revamp both in identity and their website.</p>
+                                </div>
+                                <img src="${basePath}/1 - CSC Initial Web.png" alt="Common Store Co Initial Website" style="width: 100%; border-radius: 4px;" onclick="event.stopPropagation(); openImagePopup('${basePath}/1 - CSC Initial Web.png')">
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-role">
+                                <div class="case-study-popup-section-title">Role &amp; Responsibility</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>My role in this project as a Web Designer responsible for end-to-end UX and UI Designs, collaborating with Graphic Designer, Creative Director, and Developer. My deliverable includes:</p>
+                                    <ul>
+                                        <li>Analyze the current website and look for improvements.</li>
+                                        <li>Create a more flowy content structure.</li>
+                                        <li>Collect moodboards as references.</li>
+                                        <li>Create a wireframe and sketches.</li>
+                                        <li>Create UI Design and iterate.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-findings">
+                                <div class="case-study-popup-section-title">Findings</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>In the current design, we found that it does not reflect the brand value. Here's more that we found:</p>
+                                    <ul>
+                                        <li>Plain design that didn't reflect a creative brand.</li>
+                                        <li>The website looked like a list of brands.</li>
+                                        <li>As a company profile, there are no values to present.</li>
+                                        <li>There weren't any of the things that were memorable to look at.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-design">
+                                <div class="case-study-popup-section-title">Design Decisions</div>
+                                <div class="case-study-popup-section-text">
+                                    <p><strong>Inject the UI with the new Brand Guideline</strong></p>
+                                    <p>The current website design does not reflect the values. We brainstormed together to create the website that feels warmer and more modern.</p>
+                                    <p><strong>Restructuring website content</strong></p>
+                                    <p>The website only has a hero and a list of brands that takes too long to scroll. People don't just want to see the brands and descriptions; they also want to know more about the values of each brand we have.</p>
+                                    <p>We restructured the content to provide more explanation and use the Golden Circle as the framework, so users can better understand what Common Store Co offers.</p>
+                                </div>
+                                <div class="case-study-popup-process-grid">
+                                    <img src="${basePath}/2 - Moodboards.png" alt="Moodboards" onclick="event.stopPropagation(); openImagePopup('${basePath}/2 - Moodboards.png')">
+                                    <img src="${basePath}/3 - Content & IA.png" alt="Content & IA" onclick="event.stopPropagation(); openImagePopup('${basePath}/3 - Content & IA.png')">
+                                    <img src="${basePath}/4 - Wireframe 1.png" alt="Wireframe 1" onclick="event.stopPropagation(); openImagePopup('${basePath}/4 - Wireframe 1.png')">
+                                    <img src="${basePath}/4 - Wireframe 2.png" alt="Wireframe 2" onclick="event.stopPropagation(); openImagePopup('${basePath}/4 - Wireframe 2.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-outcome">
+                                <div class="case-study-popup-section-title">Outcome</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>The redesign of Common Store Co has greatly improved visually and has a better content structure. Since this is a hub of brands, it's important to have a great first impression as the foundation.</p>
+                                </div>
+                                <div class="case-study-popup-section-images single">
+                                    <img src="${basePath}/5 - UI Design.png" alt="UI Design" onclick="event.stopPropagation(); openImagePopup('${basePath}/5 - UI Design.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-skills">
+                                <div class="case-study-popup-section-title">Skills &amp; Tools</div>
+                                <div class="case-study-popup-skills">
+                                    <span class="case-study-popup-skill">UX Research</span>
+                                    <span class="case-study-popup-skill">Heuristic Evaluation</span>
+                                    <span class="case-study-popup-skill">Wireframing</span>
+                                    <span class="case-study-popup-skill">UI Design</span>
+                                    <span class="case-study-popup-skill">Responsive Website</span>
+                                    <span class="case-study-popup-skill">Prototyping</span>
+                                    <span class="case-study-popup-skill">Collaboration</span>
+                                    <span class="case-study-popup-skill">Figma</span>
+                                    <span class="case-study-popup-skill">AI Image Generation</span>
+                                    <span class="case-study-popup-skill">Branding</span>
+                                </div>
+                            </div>`;
+            } else if (project === 'Visitor Management System') {
+                const vmsBasePath = "Asset/Home/Featured Work/FW - 3";
+                projectLinkHtml = `<a href="https://etamu-dprd.bandungbaratkab.go.id/" target="_blank" onclick="event.stopPropagation()">${project}</a>`;
+                heroImageSrc = "Asset/Home/Featured Work/FW - 1.png";
+                sectionsHtml = `
+                            <div class="case-study-popup-section" id="cs-bg">
+                                <div class="case-study-popup-section-title">Background</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>DPRD Kabupaten Bandung Barat is aware that they're one of the causes of traffic jams on the provincial road right outside their office; they just haven't found the right solution yet.</p>
+                                    <p>There's no proper way for guests to check availability before visiting. The only channel is WhatsApp, and there's no clear confirmation system, so guests often show up without really knowing if anyone's free to meet them.</p>
+                                    <p>It gets worse because visits are rarely just one person in one car. Many guests arrive in groups, using multiple cars or even Elf minibuses. When they arrive and find the meeting isn't confirmed or the person isn't available, they're stuck. Add limited parking into the mix, and cars end up queuing on the street, causing traffic jams.</p>
+                                    <p>On the internal side, guest visits are still recorded manually in a physical book, then re-entered into Excel, which also needs to include images. This means double work, more room for mistakes, and Excel files that keep growing in size because of all the embedded images.</p>
+                                </div>
+                                <img src="${vmsBasePath}/1 - Analyze Documents.png" alt="Analyze Documents" style="width: 100%; border-radius: 4px;" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/1 - Analyze Documents.png')">
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-role">
+                                <div class="case-study-popup-section-title">Role &amp; Responsibility</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>My role in this project is as a Product Experience Designer responsible for end-to-end UX and UI Designs, collaborating with stakeholders, the product manager, and developers. My deliverable includes:</p>
+                                    <ul>
+                                        <li>User research</li>
+                                        <li>Analyze documents and the current condition</li>
+                                        <li>Brainstorm with stakeholders</li>
+                                        <li>Create a wireframe and sketches</li>
+                                        <li>Create UI Design and iterate</li>
+                                        <li>Prototyping and presentation</li>
+                                    </ul>
+                                    <p>I designed this end-to-end as a solo designer, refining the work together with the PM. The PM gave me full ownership over the creative direction and flow, so there wasn't friction in that collaboration.</p>
+                                    <p>Since the design phase only had a month, we skipped in-depth usability testing and instead presented directly to the client, who also happened to be a user in this case. During the presentation, they tried the design on mobile and gave feedback on the spot.</p>
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-findings">
+                                <div class="case-study-popup-section-title">Findings</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>We ran an FGD with 4-6 people, including PR staff, council assistants, and front office staff, to understand the current condition: pain points, who's involved and what they do, peak hour conditions, and the pre- and post-visit process.</p>
+                                    <p>During the session, they also shared existing documents they used for the future system, including the guest book template, guest presence template, and council member visitation notice, which gave us a clearer picture of what data and steps were already in place.</p>
+                                    <p>Here's what we found from the FGD and further research:</p>
+                                    <ul>
+                                        <li>Manual process from WhatsApp to guest book to Excel sheet</li>
+                                        <li>Lack of transparency in DPRD Kab. Bandung Barat's meeting availability</li>
+                                        <li>Complicated to organize data</li>
+                                    </ul>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${vmsBasePath}/2 - Flow Map - Admin.png" alt="Flow Map - Admin" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/2 - Flow Map - Admin.png')">
+                                    <img src="${vmsBasePath}/2 - Flow Map - Book.png" alt="Flow Map - Book" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/2 - Flow Map - Book.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-design">
+                                <div class="case-study-popup-section-title">Design Decisions</div>
+                                <div class="case-study-popup-section-text">
+                                    <p><strong>Show availability in the front office</strong></p>
+                                    <p>To accommodate guests who visit without booking a meeting on the website, we show today's availability in the front office. This way, they could see what time they could book a meeting and get help from staff who would guide them on booking on the website.</p>
+                                    <p><strong>Online meeting booking</strong></p>
+                                    <p>To make things easier for the staff who need to sync meeting records and guests who need to show availability, we create a platform on the website that has 1 gate to sync everything.</p>
+                                    <p><strong>Dashboard Analytics</strong></p>
+                                    <p>In this dashboard, we create some simple analytics to show who frequently visits, how many visitors in some period of time, also dashboard as storage for meeting documentation.</p>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${vmsBasePath}/3 - Moodboards.png" alt="Moodboards" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/3 - Moodboards.png')">
+                                    <img src="${vmsBasePath}/4 - Wireframe.png" alt="Wireframe" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/4 - Wireframe.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-outcome">
+                                <div class="case-study-popup-section-title">Outcome</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>While we don't have exact figures yet, the shift from manual to digital changed the visitor flow for both guests and staff. Guests now get scheduling, confirmation, and updates directly through the system, with WhatsApp left only for casual questions.</p>
+                                    <p>Staff no longer juggle WhatsApp, guest books, and Excel. Every visit is recorded automatically, searchable with full history and supporting documents, and dashboard analytics now show visitor patterns that used to be invisible in scattered spreadsheets.</p>
+                                    <p>Traffic wasn't the primary target, but with guests now visiting based on confirmed availability instead of guesswork, fewer end up turned away or re-routing back to Bandung.</p>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${vmsBasePath}/5 - UI Booking.png" alt="UI Booking" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/5 - UI Booking.png')">
+                                    <img src="${vmsBasePath}/5 - UI Dashboard.png" alt="UI Dashboard" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/5 - UI Dashboard.png')">
+                                    <img src="${vmsBasePath}/5 - UI Schedule.png" alt="UI Schedule" onclick="event.stopPropagation(); openImagePopup('${vmsBasePath}/5 - UI Schedule.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-skills">
+                                <div class="case-study-popup-section-title">Skills &amp; Tools</div>
+                                <div class="case-study-popup-skills">
+                                    <span class="case-study-popup-skill">Product Discovery</span>
+                                    <span class="case-study-popup-skill">UX Research</span>
+                                    <span class="case-study-popup-skill">Forum Group Discussion</span>
+                                    <span class="case-study-popup-skill">Flowmap</span>
+                                    <span class="case-study-popup-skill">Wireframe</span>
+                                    <span class="case-study-popup-skill">UX Writing</span>
+                                    <span class="case-study-popup-skill">UI Design</span>
+                                    <span class="case-study-popup-skill">Prototype</span>
+                                    <span class="case-study-popup-skill">Presentation</span>
+                                    <span class="case-study-popup-skill">Collaboration</span>
+                                </div>
+                            </div>`;
+            } else if (project === 'C-Infra KAI Commuter') {
+                const kaiBasePath = "Asset/Home/Featured Work/FW - 2";
+                projectLinkHtml = `<span>${project}</span>`;
+                heroImageSrc = kaiBasePath + "/5 - UI.png";
+                sectionsHtml = `
+                            <div class="case-study-popup-section" id="cs-bg">
+                                <div class="case-study-popup-section-title">Background</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>Some people have the privilege to use their own car or bike, some uses ride hailing, and for some, like 800,000 (conducted on 2023) people uses public transportation like Commuter Line. They don't have any other means to commute other than commuter line and buses.</p>
+                                    <p>This is their most effective and efficient mode of transportation that the government facilitate. And this also means that lots of usage will come with certain risk of degrading, thus increasing risk of facility damage.</p>
+                                    <p>KAI Commuter Operator's conduct a daily patrol to check their facilities, using traditional paper method to report and assigning letters.</p>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${kaiBasePath}/1 - Business Process.png" alt="Business Process" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/1 - Business Process.png')">
+                                    <img src="${kaiBasePath}/1 - Documents.png" alt="Documents" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/1 - Documents.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-role">
+                                <div class="case-study-popup-section-title">Role &amp; Responsibility</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>My role in this project is as a User Experience Designer responsible for research, analysis, and direction, collaborating with stakeholders, the product manager, and developers. My deliverable includes:</p>
+                                    <ul>
+                                        <li>User research</li>
+                                        <li>Analyze documents and the current condition</li>
+                                        <li>Brainstorm with stakeholders</li>
+                                        <li>Defining information architecture</li>
+                                        <li>Create user flow per features</li>
+                                        <li>Create a wireframe and sketches</li>
+                                        <li>Supporting UI Styles and direction</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-findings">
+                                <div class="case-study-popup-section-title">Findings</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>I was the PIC (person in charge) for the design side of this project, which meant I was responsible for both the UX and UI output, even though my own hands-on work was UX-focused.</p>
+                                    <ul>
+                                        <li>Supervised the design team: myself on UX, plus 2 UI designers (1 full-time, 1 intern)</li>
+                                        <li>Led research and requirement gathering, including analyzing existing documents and business flows from the client</li>
+                                        <li>Mapped the end-to-end business process into flowmaps before any screen design started</li>
+                                        <li>Built wireframes and wireframe flows to define structure and logic ahead of visual design</li>
+                                        <li>Reviewed and directed the UI team's output to make sure it stayed aligned with the flows and client's existing design system</li>
+                                    </ul>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${kaiBasePath}/2 - Flow 1.png" alt="Flow 1" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/2 - Flow 1.png')">
+                                    <img src="${kaiBasePath}/2 - Flow 2.png" alt="Flow 2" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/2 - Flow 2.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-design">
+                                <div class="case-study-popup-section-title">Design Decisions</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>Since the findings pointed straight at visibility, most of the core decisions were built around making status impossible to miss.</p>
+                                    <ul>
+                                        <li>Designed a clear status lifecycle for every report (new, in progress, resolved), so anyone checking a report knows exactly where it stands</li>
+                                        <li>Built the report flow around severity level and damage category first, so reports get routed and prioritized correctly from the start</li>
+                                        <li>Assigned reports directly to station staff within the flow, removing the manual handoff step that caused reports to stall</li>
+                                        <li>Kept the wireframes flow-first: every screen was validated against the flowmap before any UI polish happened, to make sure the logic held up before it looked good</li>
+                                        <li>Worked within KCI's existing design system rather than introducing a new one, so the UI team's job was refinement and consistency, not invention</li>
+                                    </ul>
+                                    <p>A lot of the harder design work here happened before any screens existed, it was in getting the business flow and status logic right. Once that was solid, the UI layer was comparatively straightforward because the design system was already there.</p>
+                                </div>
+                                <div class="case-study-popup-image-grid">
+                                    <img src="${kaiBasePath}/3 - Moodboard.png" alt="Moodboard" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/3 - Moodboard.png')">
+                                    <img src="${kaiBasePath}/4 - Wireframes.png" alt="Wireframes" onclick="event.stopPropagation(); openImagePopup('${kaiBasePath}/4 - Wireframes.png')">
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-outcome">
+                                <div class="case-study-popup-section-title">Outcome</div>
+                                <div class="case-study-popup-section-text">
+                                    <p>This project wrapped in the 1-3 month range. The outcome so far is mostly qualitative rather than a set of hard numbers.</p>
+                                    <ul>
+                                        <li>Client and station staff feedback pointed to the new visibility into report status as the clearest win, addressing the exact gap research surfaced</li>
+                                        <li>The flow-first approach meant fewer structural revisions later in the project, since logic issues were caught at the wireframe stage</li>
+                                        <li>Being able to lean on KCI's existing design system kept the UI team's output consistent and sped up the polish phase</li>
+                                    </ul>
+                                    <p>I'll be upfront that I don't have adoption numbers or time-saved metrics for this one, that data wasn't tracked or shared back to the design team.</p>
+                                </div>
+                            </div>
+
+                            <div class="case-study-popup-section" id="cs-skills">
+                                <div class="case-study-popup-section-title">Skills &amp; Tools</div>
+                                <div class="case-study-popup-skills">
+                                    <span class="case-study-popup-skill">Product Discovery</span>
+                                    <span class="case-study-popup-skill">Analyst</span>
+                                    <span class="case-study-popup-skill">UX Research</span>
+                                    <span class="case-study-popup-skill">Forum Group Discussion</span>
+                                    <span class="case-study-popup-skill">Flowmap</span>
+                                    <span class="case-study-popup-skill">Wireframe</span>
+                                    <span class="case-study-popup-skill">Wireflow</span>
+                                    <span class="case-study-popup-skill">UX Writing</span>
+                                    <span class="case-study-popup-skill">UI Styling</span>
+                                    <span class="case-study-popup-skill">Prototype</span>
+                                    <span class="case-study-popup-skill">Presentation</span>
+                                    <span class="case-study-popup-skill">Collaboration</span>
+                                    <span class="case-study-popup-skill">Figma</span>
+                                </div>
+                            </div>`;
+            }
+
+            popup.innerHTML = `
+                <div class="case-study-popup-card-full" onclick="event.stopPropagation()">
+                                    <button class="case-study-popup-close" onclick="closeCaseStudyPopup()">✕</button>
+                                    <div class="case-study-popup-scroll-area">
+                                        <div class="case-study-popup-meta-wrap">
+                                            <div class="case-study-popup-meta">
+                                                <div class="case-study-popup-meta-tags">${tagsHtml}</div>
+                                                <div class="case-study-popup-meta-name">${projectLinkHtml} ${arrowSvg}</div>
+                                            </div>
+                                        </div>
+                                        <img class="case-study-popup-hero-image" src="${heroImageSrc}" alt="${project}" onclick="event.stopPropagation(); openImagePopup('${heroImageSrc}')">
+                                        <div class="case-study-popup-body-full">
+                                            <nav class="case-study-popup-nav">
+                                                <a href="#cs-bg" class="active" onclick="event.preventDefault(); activateCaseStudyNav(this)">Background</a>
+                                                <a href="#cs-role" onclick="event.preventDefault(); activateCaseStudyNav(this)">Role &amp; Responsibility</a>
+                                                <a href="#cs-findings" onclick="event.preventDefault(); activateCaseStudyNav(this)">Findings</a>
+                                                <a href="#cs-design" onclick="event.preventDefault(); activateCaseStudyNav(this)">Design Decisions</a>
+                                                <a href="#cs-outcome" onclick="event.preventDefault(); activateCaseStudyNav(this)">Outcome</a>
+                                                <a href="#cs-skills" onclick="event.preventDefault(); activateCaseStudyNav(this)">Skills &amp; Tools</a>
+                                            </nav>
+                                            <div class="case-study-popup-content-full">
+                            ${sectionsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            requestAnimationFrame(() => {
+                popup.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) closeCaseStudyPopup();
+            });
+
+            // Scroll spy for sidebar nav
+            const scrollArea = popup.querySelector('.case-study-popup-scroll-area');
+            const navLinks = popup.querySelectorAll('.case-study-popup-nav a');
+            const sections = popup.querySelectorAll('.case-study-popup-section');
+
+            if (scrollArea && sections.length && navLinks.length) {
+                scrollArea.addEventListener('scroll', function() {
+                    const scrollPos = scrollArea.scrollTop + 80;
+                    let currentIdx = 0;
+                    sections.forEach((section, idx) => {
+                        const sectionTop = section.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top;
+                        if (sectionTop <= 80) {
+                            currentIdx = idx;
+                        }
+                    });
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    if (navLinks[currentIdx]) navLinks[currentIdx].classList.add('active');
+                });
+            }
+        }
+
+        function activateCaseStudyNav(link) {
+            const popup = document.getElementById('case-study-popup');
+            if (!popup) return;
+            const scrollArea = popup.querySelector('.case-study-popup-scroll-area');
+            const target = popup.querySelector(link.getAttribute('href'));
+            if (scrollArea && target) {
+                const top = target.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top + scrollArea.scrollTop - 20;
+                scrollArea.scrollTo({ top: top, behavior: 'smooth' });
+            }
+            popup.querySelectorAll('.case-study-popup-nav a').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        }
+
+        function closeCaseStudyPopup() {
+            const popup = document.getElementById('case-study-popup');
+            if (popup) {
+                popup.classList.remove('active');
+                setTimeout(() => {
+                    popup.classList.remove('case-study-popup--full');
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+        }
+
+        // ===== YEAR NAV ACTIVE STATE =====
+        const yearSections = document.querySelectorAll('.recent-work-year-section');
+        const yearLinks = document.querySelectorAll('.recent-work-years a');
+        if (yearSections.length && yearLinks.length) {
+            const yearObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        yearLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            yearSections.forEach(section => yearObserver.observe(section));
+        }
 
         // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

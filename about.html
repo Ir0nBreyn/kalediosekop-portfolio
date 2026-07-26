@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Kalediosekop | Digital Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #eeede9;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --accent: #f97316;
+            --accent-hover: #fb923c;
+            --border: #e0ddd8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation — transparent, matching index.html */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 1.25rem 40px;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 1.1rem;
+            background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+            border: 1px solid #333;
+            border-radius: 100px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .logo-pill:hover {
+            background: linear-gradient(180deg, #333 0%, #262626 100%);
+            border-color: #444;
+        }
+
+        .nav-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.15rem;
+            list-style: none;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.25rem;
+        }
+
+        .nav-pill a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-pill a:hover {
+            color: var(--text-primary);
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        /* Active "About" — black background */
+        .nav-pill a.active {
+            background: #111;
+            color: #fff;
+        }
+
+        .nav-pill a.active:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 1.1rem;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 100px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 8rem 40px 2rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        .hero-massive {
+            margin-left: -40px;
+            width: max-content;
+            font-size: 14.4vw;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 0.8;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        /* Sections Common */
+        section {
+            padding: 6rem 40px;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        /* Bio Section */
+        .bio {
+            background-color: var(--bg-primary);
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .bio-image {
+            position: sticky;
+            top: 120px;
+            overflow: hidden;
+        }
+
+        .bio-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .bio-content h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .bio-content p {
+            font-size: clamp(0.9375rem, 1.1vw, 1.125rem);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            max-width: 520px;
+        }
+
+        /* Values Section */
+        .values {
+            background-color: var(--bg-primary);
+        }
+
+        .values-intro {
+            max-width: 600px;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .value-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .value-card p {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Competency Section */
+        .competency {
+            background-color: var(--bg-primary);
+        }
+
+        .competency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .competency h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Work Experience */
+        .experience {
+            background-color: var(--bg-primary);
+        }
+
+        .timeline {
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .timeline-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8125rem;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .timeline-role {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .timeline-details {
+            list-style: none;
+        }
+
+        .timeline-details li {
+            padding: 0.35rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .timeline-details li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.75rem;
+            top: 0.45rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111111;
+            padding: 2.5rem 40px 0;
+            position: relative;
+            overflow: hidden;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: auto;
+            padding-bottom: 4rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .footer-contact a,
+        .footer-contact span {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent);
+        }
+
+        .footer-status {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: #f5f5f5;
+            font-size: 0.8125rem;
+            text-align: right;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 0;
+            animation: glowPulse 3s ease-in-out infinite;
+            flex-shrink: 0;
+            margin-top: 0.2em;
+        }
+
+        .footer-status-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.15rem;
+        }
+
+        .footer-massive {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 14.4vw;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.75;
+            color: #f5f5f5;
+            white-space: nowrap;
+            text-align: center;
+            margin-bottom: 0;
+            margin-left: -40px;
+            width: max-content;
+            user-select: none;
+        }
+
+        /* Let's Talk cursor follower */
+        .lets-talk {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lets-talk.active {
+            opacity: 1;
+        }
+
+        .lets-talk-inner {
+            width: 80px;
+            height: 80px;
+            background: #f97316;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 0.05em;
+        }
+
+        .lets-talk-inner::before,
+        .lets-talk-inner::after {
+            content: '';
+            position: absolute;
+            background: #f97316;
+        }
+
+        .lets-talk-inner::before {
+            top: -10px;
+            left: 10px;
+            right: 10px;
+            height: 10px;
+        }
+
+        .lets-talk-inner::after {
+            bottom: -10px;
+            left: 10px;
+            right: 10px;
+            height: 10px;
+        }
+
+        .lets-talk-pixels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .lets-talk-pixels::before,
+        .lets-talk-pixels::after {
+            content: '';
+            position: absolute;
+            background: #f97316;
+        }
+
+        .lets-talk-pixels::before {
+            top: 10px;
+            bottom: 10px;
+            left: -10px;
+            width: 10px;
+        }
+
+        .lets-talk-pixels::after {
+            top: 10px;
+            bottom: 10px;
+            right: -10px;
+            width: 10px;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 4px 2px rgba(74, 222, 128, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 14px 5px rgba(74, 222, 128, 0.5);
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bio-grid,
+            .values-grid,
+            .competency-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .bio-image {
+                position: relative;
+                top: 0;
+                aspect-ratio: 1 / 1;
+            }
+
+            .bio-image img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-massive {
+                font-size: 16vw;
+            }
+
+            .nav-pill,
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-pill.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: calc(100% + 0.5rem);
+                left: 40px;
+                right: 40px;
+                background: rgba(255, 255, 255, 0.95);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 0.5rem;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-pill.open a {
+                width: 100%;
+                justify-content: center;
+                padding: 0.75rem 1rem;
+                color: var(--text-primary);
+            }
+
+            .nav-pill.open a.active {
+                background: #111;
+                color: #fff;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 4rem 40px;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo-pill">Kalediosekop</a>
+        <ul class="nav-pill">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#works">Work</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Let's Collaborate</a>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-massive" id="hero-massive">About</div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio" id="bio">
+        <div class="bio-grid">
+            <div class="bio-image reveal">
+                <img src="Asset/Home/Dio Profile Picture.png" alt="Dio Profile Picture">
+            </div>
+            <div class="bio-content">
+                <h2 class="reveal">Halo!</h2>
+                <p class="reveal">My name is Ardhiya Febrian Rachman, and you can call me Dio. I'm a Digital Product designer who started in 2019. Thanks for stopping by my portfolio and considering me for your next project.</p>
+                <p class="reveal">I started my study as a Software Engineer, then shifted into a Graphic Designer, doing social media and branding design. And with that background, I'm well familiar with how developers work with logic and frameworks, as well as how branding affects an application.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="section-header">
+            <h2 class="section-title reveal">Human-centered<br>in an AI era</h2>
+        </div>
+        <p class="values-intro reveal">In the current era of AI, it's becoming increasingly apparent that we should focus on making our approach as humane as possible, whether on the product side or in business goals.</p>
+        <div class="values-grid">
+            <div class="value-card reveal">
+                <div class="value-number">01</div>
+                <h3>Adaptable</h3>
+                <p>Working from 0 → 1 projects, or an ongoing project. I can manage and adapt to what's currently working and see if I can make an impact to improve it.</p>
+            </div>
+            <div class="value-card reveal">
+                <div class="value-number">02</div>
+                <h3>Experience Focused</h3>
+                <p>Though UI trends are evolving rapidly with AI assistance, getting experience in creating an easy, helpful, and tailored experience to the problem we're going to solve.</p>
+            </div>
+            <div class="value-card reveal">
+                <div class="value-number">03</div>
+                <h3>Scalability</h3>
+                <p>Working on a project also requires thinking of others who'll continue it. Using components and readable documentation will help others to support us.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competency Section -->
+    <section class="competency" id="competency">
+        <div class="section-header">
+            <h2 class="section-title reveal">Skills &amp; Tools</h2>
+        </div>
+        <div class="competency-grid">
+            <div class="reveal">
+                <h3>Skills</h3>
+                <div class="chips-wrap">
+                    <span class="chip">Product Discovery</span>
+                    <span class="chip">Design Thinking</span>
+                    <span class="chip">User Research</span>
+                    <span class="chip">Forum Group Discussion</span>
+                    <span class="chip">Flow Diagram</span>
+                    <span class="chip">Affinity Mapping</span>
+                    <span class="chip">Wireframing</span>
+                    <span class="chip">Microcopy &amp; Copywriting</span>
+                    <span class="chip">UI Design</span>
+                    <span class="chip">Design System</span>
+                    <span class="chip">Prototyping</span>
+                    <span class="chip">Vibe Coding</span>
+                    <span class="chip">Design Documentation</span>
+                    <span class="chip">Presentation</span>
+                    <span class="chip">Graphic Design</span>
+                    <span class="chip">Brand Design</span>
+                </div>
+            </div>
+            <div class="reveal">
+                <h3>Tools</h3>
+                <div class="chips-wrap">
+                    <span class="chip">Figma</span>
+                    <span class="chip">Figjam</span>
+                    <span class="chip">Miro</span>
+                    <span class="chip">Balsamic</span>
+                    <span class="chip">Google Analytics</span>
+                    <span class="chip">Adobe Illustrator</span>
+                    <span class="chip">Adobe Photoshop</span>
+                    <span class="chip">Affinity</span>
+                    <span class="chip">Claude</span>
+                    <span class="chip">Gemini</span>
+                    <span class="chip">Shopify</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <h2 class="section-title reveal">Where I've been</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <span class="timeline-date">2024 — Present</span>
+                </div>
+                <div class="timeline-role">Web Designer</div>
+                <div class="timeline-company">at MOKU Digital</div>
+                <ul class="timeline-details">
+                    <li>Build an engaging landing page tailored for the client's direct consumer</li>
+                    <li>Create a sketch as an initial idea for the client</li>
+                    <li>Increasing work efficiency by building a template system</li>
+                    <li>Exploring Shopify and WordPress as a design framework</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <span class="timeline-date">2019 — 2024</span>
+                </div>
+                <div class="timeline-role">Sr. UX Designer</div>
+                <div class="timeline-company">at GITS ID</div>
+                <ul class="timeline-details">
+                    <li>Reducing pre-development time by 30% using Wireframe Kit</li>
+                    <li>Increasing performance communication effectiveness by 50% with the standardization of the UX Workflow</li>
+                    <li>Increase understanding of project knowledge by 20% with the design document and design synchronization</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <span class="timeline-date">2022 — 2023</span>
+                </div>
+                <div class="timeline-role">UIUX Mentor</div>
+                <div class="timeline-company">at Skilvul</div>
+                <ul class="timeline-details">
+                    <li>Taught and mentored across classes and guided them through design fundamentals</li>
+                    <li>Contributed to improving the learning experience through weekly retrospectives with the curriculum team</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <span class="timeline-date">2022 — 2023</span>
+                </div>
+                <div class="timeline-role">Digital Consultant</div>
+                <div class="timeline-company">at Rumah Zakat</div>
+                <ul class="timeline-details">
+                    <li>Conducted and facilitated design sprint workshops to drive structured problem-solving</li>
+                    <li>Provided actionable solutions via references, case studies, and workshops to improve team and product performance</li>
+                    <li>Collaborated with stakeholders to ensure products served both organizational and end-user needs effectively</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <a href="tel:+6289682846460">+62 896 828 46460</a>
+                <a href="mailto:ardhiyafebrianr@gmail.com">ardhiyafebrianr@gmail.com</a>
+                <a href="https://instagram.com/kalediosekop" target="_blank">@kalediosekop</a>
+            </div>
+            <div class="footer-status">
+                <span class="footer-status-dot"></span>
+                <div class="footer-status-text">
+                    <span>Available for freelance, part-time, contract</span>
+                    <span>&copy;2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-massive">Thank You</div>
+    </footer>
+
+    <!-- Let's Talk cursor follower -->
+    <div class="lets-talk" id="lets-talk">
+        <div class="lets-talk-inner">
+            <div class="lets-talk-pixels"></div>
+            Let's<br>talk
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ===== FULL-WIDTH FIT TEXT =====
+        function fitTextToViewport(selector) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+            el.style.fontSize = '';
+            const targetWidth = document.documentElement.clientWidth;
+            const currentSize = parseFloat(window.getComputedStyle(el).fontSize);
+            const currentWidth = el.scrollWidth;
+            if (!currentWidth || !currentSize) return;
+            const idealSize = currentSize * (targetWidth / currentWidth);
+            el.style.fontSize = idealSize + 'px';
+        }
+        function fitAllText() {
+            fitTextToViewport('#hero-massive');
+            fitTextToViewport('.footer-massive');
+        }
+        window.addEventListener('load', fitAllText);
+        window.addEventListener('resize', fitAllText);
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== MOBILE MENU =====
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navPill = document.querySelector('.nav-pill');
+        mobileMenuBtn.addEventListener('click', () => {
+            navPill.classList.toggle('open');
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navPill.classList.remove('open');
+                }
+            });
+        });
+
+        // ===== LET'S TALK CURSOR FOLLOWER =====
+        const letsTalk = document.getElementById('lets-talk');
+        const footer = document.querySelector('footer');
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+        let rafId = null;
+        let isInFooter = false;
+
+        function animateFollower() {
+            const dx = mouseX - currentX;
+            const dy = mouseY - currentY;
+            currentX += dx * 0.15;
+            currentY += dy * 0.15;
+            letsTalk.style.transform = `translate(${currentX - 50}px, ${currentY - 50}px)`;
+            rafId = requestAnimationFrame(animateFollower);
+        }
+
+        footer.addEventListener('mouseenter', () => {
+            isInFooter = true;
+            letsTalk.classList.add('active');
+            if (!rafId) rafId = requestAnimationFrame(animateFollower);
+        });
+
+        footer.addEventListener('mouseleave', () => {
+            isInFooter = false;
+            letsTalk.classList.remove('active');
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (isInFooter && !rafId) {
+                rafId = requestAnimationFrame(animateFollower);
+            }
+        });
+
+        setInterval(() => {
+            if (!isInFooter && rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+            }
+        }, 100);
+    </script>
+</body>
+</html>
