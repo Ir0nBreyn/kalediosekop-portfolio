@@ -20,7 +20,7 @@
         }
 
         body {
-            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
@@ -1538,7 +1538,7 @@
         }
 
         .footer-massive {
-            font-family: 'Instrument Sans', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-size: 14.4vw;
             font-weight: 700;
             letter-spacing: -0.04em;
