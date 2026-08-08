@@ -1906,6 +1906,9 @@
             .client-marquee-item img {
                 max-width: 100%;
             }
+            .client-marquee-item:nth-child(n+22) {
+                display: none;
+            }
 
             /* Recent Work — sidebar horizontal sticky */
             .recent-work {
