@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- New works in the Recent Work grid: Madame Kim (2024), Diamond Whales (2025), and Life Changing Care (2024).
+
 ## [2026.07.27] - 2026-07-27
 
 ### Fixed
