@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - New works in the Recent Work grid: Madame Kim (2024), Diamond Whales (2025), Life Changing Care (2024), and Good Morning Vietnam by Graphic Apparel (2026).
 - Changed Diamond Whales deliverable to UIUX and Madame Kim deliverable to Landing Page.
+- Moved Good Morning Vietnam by Graphic Apparel to the first position in the Recent Work 2026 grid.
+- Replaced text glyph icons with Feather Icons (menu, external-link, chevron-right) across `index.html` and `about.html`.
 
 ## [2026.07.27] - 2026-07-27
 
