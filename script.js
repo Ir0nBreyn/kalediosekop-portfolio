@@ -252,17 +252,28 @@
         });
 
 
-        // ===== ACTIVE NAV LINK ON SCROLL =====
+        // ===== ACTIVE NAV LINK ON SCROLL + SLIDING INDICATOR =====
         const navLinks = document.querySelectorAll('.nav-pill a');
-        const navTargets = Array.from(navLinks).map(link => {
-            const id = link.getAttribute('href').replace('#', '');
-            return document.getElementById(id);
-        }).filter(Boolean);
-        window.addEventListener('scroll', () => {
+        const navPillEl = document.querySelector('.nav-pill');
+        const navIndicator = document.querySelector('.nav-pill-indicator');
+
+        function moveIndicator(link) {
+            if (!navIndicator || !link) return;
+            gsap.to(navIndicator, {
+                left: link.offsetLeft,
+                width: link.offsetWidth,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
+
+        function syncActiveLink() {
             let current = '';
+            let currentEl = null;
             navTargets.forEach(el => {
                 if (scrollY >= el.offsetTop - 200) {
                     current = el.getAttribute('id');
+                    currentEl = el;
                 }
             });
             navLinks.forEach(link => {
@@ -271,7 +282,32 @@
                     link.classList.add('active');
                 }
             });
-        });
+            const activeLink = Array.from(navLinks).find(link =>
+                link.getAttribute('href') === '#' + current
+            ) || navLinks[0];
+            moveIndicator(activeLink);
+        }
+
+        const navTargets = Array.from(navLinks).map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(Boolean);
+
+        if (navIndicator && navPillEl) {
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => moveIndicator(link));
+            });
+            navPillEl.addEventListener('mouseleave', () => {
+                const activeLink = navPillEl.querySelector('a.active');
+                moveIndicator(activeLink || navLinks[0]);
+            });
+        }
+
+        window.addEventListener('scroll', syncActiveLink);
+        if (navIndicator) {
+            const activeLink = navPillEl ? navPillEl.querySelector('a.active') : null;
+            moveIndicator(activeLink || navLinks[0]);
+        }
 
 
         // ===== LET'S TALK CURSOR FOLLOWER =====

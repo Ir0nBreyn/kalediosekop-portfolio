@@ -46,8 +46,10 @@
             display: inline-flex;
             align-items: center;
             padding: 0.55rem 1.1rem;
-            background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
-            border: 1px solid #333;
+            background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #121212;
+            outline: 1px solid #121212;
+            outline-offset: -1px;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
             border-radius: 100px;
             color: #fff;
             text-decoration: none;
@@ -59,8 +61,8 @@
         }
 
         .logo-pill:hover {
-            background: linear-gradient(180deg, #333 0%, #262626 100%);
-            border-color: #444;
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #1d1d1d;
+            transition-delay: 0.3s;
         }
 
         .nav-pill {
@@ -68,40 +70,53 @@
             align-items: center;
             gap: 0.15rem;
             list-style: none;
-            background: #fff;
-            border: 1px solid var(--border);
+            background: #f5f5f5;
             border-radius: 100px;
             padding: 0.25rem;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            position: relative;
+        }
+
+        .nav-pill-indicator {
+            position: absolute;
+            top: 0.25rem;
+            bottom: 0.25rem;
+            left: 0;
+            width: 0;
+            border-radius: 100px;
+            background: linear-gradient(180deg, #e5e5e5FF 0%, #e5e5e500 100%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .nav-pill a {
             display: inline-flex;
             align-items: center;
             padding: 0.5rem 1rem;
-            color: var(--text-secondary);
+            color: #3d3d3d;
             text-decoration: none;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 400;
             border-radius: 100px;
-            transition: all 0.3s ease;
+            transition: color 0.4s ease;
             white-space: nowrap;
+            position: relative;
+            z-index: 1;
         }
 
-        .nav-pill a:hover {
-            color: var(--text-primary);
-            background: rgba(0, 0, 0, 0.06);
-        }
-
+        .nav-pill a:hover,
         .nav-pill a.active {
-            background: rgba(0, 0, 0, 0.12);
-            color: var(--text-primary);
+            color: #3d3d3d;
         }
 
         .nav-cta {
             display: inline-flex;
             align-items: center;
             padding: 0.55rem 1.1rem;
-            background: var(--accent);
+            background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            outline: 1px solid #FF6600;
+            outline-offset: -1px;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
             color: #fff;
             text-decoration: none;
             font-size: 0.875rem;
@@ -112,9 +127,13 @@
         }
 
         .nav-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            transition-delay: 0.3s;
+        }
+
+        .nav-cta:active {
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #E9560C;
         }
 
         .mobile-menu-btn {
@@ -586,7 +605,10 @@
             align-self: flex-start;
             align-items: center;
             gap: 0.75rem;
-            background: var(--accent);
+            background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            outline: 1px solid #FF6600;
+            outline-offset: -1px;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
             color: #fff;
             text-decoration: none;
             padding: 0.875rem 1.75rem;
@@ -597,9 +619,13 @@
         }
 
         .work-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.25);
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            transition-delay: 0.3s;
+        }
+
+        .work-cta:active {
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #E9560C;
         }
 
         .works-slide-image {
@@ -700,7 +726,10 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background: var(--accent);
+            background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            outline: 1px solid #FF6600;
+            outline-offset: -1px;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
             color: #fff;
             text-decoration: none;
             padding: 1rem 2.5rem;
@@ -711,9 +740,13 @@
         }
 
         .cta-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.25);
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            transition-delay: 0.3s;
+        }
+
+        .cta-button:active {
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #E9560C;
         }
 
         /* Recent Work Section */
@@ -1856,17 +1889,26 @@
                 top: calc(100% + 0.5rem);
                 left: 24px;
                 right: 24px;
-                background: rgba(255, 255, 255, 0.95);
-                border: 1px solid var(--border);
+                background: #f5f5f5;
                 border-radius: 16px;
                 padding: 0.5rem;
                 box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            }
+            .nav-pill-indicator {
+                display: none;
             }
             .nav-pill.open a {
                 width: 100%;
                 justify-content: center;
                 padding: 0.75rem 1rem;
-                color: var(--text-primary);
+                color: #3d3d3d;
+            }
+            .nav-pill.open a:hover {
+                background: linear-gradient(180deg, #e5e5e5FF 0%, #e5e5e500 100%);
+            }
+            .nav-pill.open a.active {
+                background: linear-gradient(180deg, #e5e5e5FF 0%, #e5e5e500 100%);
+                color: #3d3d3d;
             }
             .mobile-nav-cta {
                 display: none;
@@ -1874,13 +1916,19 @@
             .nav-pill.open .mobile-nav-cta {
                 display: inline-flex;
                 justify-content: center;
-                background: var(--accent);
+                background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+                outline: 1px solid #FF6600;
+                outline-offset: -1px;
+                box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
                 color: #fff;
                 border-radius: 100px;
                 margin: 0.5rem;
                 padding: 0.75rem 1rem;
                 font-weight: 600;
                 width: calc(100% - 1rem);
+            }
+            .nav-pill.open .mobile-nav-cta:active {
+                background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #E9560C;
             }
         }
 
