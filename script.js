@@ -320,26 +320,13 @@
 
 
         // ===== IMAGE POPUP =====
-        // WhatsApp link decoder (obfuscates number from bots)
-        function openWa(e) {
-            e.preventDefault();
-            const p = [98, 115, 111, 97, 101, 97, 110, 111]; // dummy
-            // real decode: pieces assembled at runtime
-            const _0x6e1f = ['eA==','eQ==','dHk=','L2E=','d3d3'];
-            const n = [[54,50],[56,57,54],[56,50,56],[52,54,52],[54,48]];
-            let num = '';
-            n.forEach(g => { g.forEach(c => { num += String.fromCharCode(c); }); });
-            window.open('https://wa.me/' + num, '_blank');
-            return false;
-        }
-
         function openImagePopup(src) {
             let popup = document.getElementById('image-popup');
             if (!popup) {
                 popup = document.createElement('div');
                 popup.id = 'image-popup';
                 popup.className = 'image-popup';
-                popup.innerHTML = '<div class="image-popup-zoom-wrap"><img id="popup-img" src="" alt=""></div><div class="image-popup-text">Scroll to zoom · Click image to reset · Click backdrop to close</div>';
+                popup.innerHTML = '<div class="image-popup-zoom-wrap"><img id="popup-img" src="" alt=""></div><div class="image-popup-text">Click to zoom · Scroll to pan · Click again to reset · Click backdrop to close</div>';
                 document.body.appendChild(popup);
                 popup.addEventListener('click', function(e) {
                     if (e.target === popup) closeImagePopup();
@@ -347,14 +334,11 @@
 
                 const img = popup.querySelector('#popup-img');
                 const wrap = popup.querySelector('.image-popup-zoom-wrap');
-                const minScale = 1;
-                const maxScale = 6;
-                const step = 0.25;
 
                 function resetZoom() {
                     img.classList.remove('zoomed');
-                    img.style.transform = '';
-                    img.style.transformOrigin = '';
+                    img.style.width = '';
+                    img.style.height = '';
                     img.dataset.scale = '1';
                     wrap.scrollTop = 0;
                     wrap.scrollLeft = 0;
@@ -362,44 +346,27 @@
 
                 img.dataset.scale = '1';
 
-                // Scroll to zoom in/out, omnidirectional (zoom towards cursor)
-                wrap.addEventListener('wheel', function(e) {
-                    e.preventDefault();
-                    let scale = parseFloat(img.dataset.scale);
-
-                    const rect = img.getBoundingClientRect();
-                    const x = ((e.clientX - rect.left) / rect.width) * 100;
-                    const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-                    if (e.deltaY < 0) {
-                        scale = Math.min(maxScale, scale + step);
-                    } else {
-                        scale = Math.max(minScale, scale - step);
-                    }
-
-                    if (scale > 1) {
-                        img.classList.add('zoomed');
-                        img.style.transform = 'scale(' + scale + ')';
-                        img.style.transformOrigin = x + '% ' + y + '%';
-                    } else {
-                        resetZoom();
-                    }
-                    img.dataset.scale = scale;
-                }, { passive: false });
-
-                // Click image to exit zoom/reset
+                // Click image to toggle 3x zoom / reset
                 img.addEventListener('click', function(e) {
                     e.stopPropagation();
                     if (parseFloat(img.dataset.scale) > 1) {
                         resetZoom();
+                        return;
                     }
+                    const rect = img.getBoundingClientRect();
+                    img.classList.add('zoomed');
+                    img.style.width = (rect.width * 3) + 'px';
+                    img.style.height = (rect.height * 3) + 'px';
+                    img.dataset.scale = '3';
+                    wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) / 2;
+                    wrap.scrollTop = (wrap.scrollHeight - wrap.clientHeight) / 2;
                 });
             }
             const img = popup.querySelector('#popup-img');
             img.src = src;
             img.classList.remove('zoomed');
-            img.style.transform = '';
-            img.style.transformOrigin = '';
+            img.style.width = '';
+            img.style.height = '';
             img.dataset.scale = '1';
             popup.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -412,8 +379,8 @@
                 const img = popup.querySelector('#popup-img');
                 if (img) {
                     img.classList.remove('zoomed');
-                    img.style.transform = '';
-                    img.style.transformOrigin = '';
+                    img.style.width = '';
+                    img.style.height = '';
                     img.dataset.scale = '1';
                 }
                 document.body.style.overflow = '';
@@ -672,7 +639,7 @@
             } else if (project === 'C-Infra KAI Commuter') {
                 const kaiBasePath = "Asset/Home/Featured Work/FW - 2";
                 projectLinkHtml = `<span>${project}</span>`;
-                heroImageSrc = kaiBasePath + "/5 - UI.webp";
+                heroImageSrc = "Asset/Home/Featured Work/FW - 4.webp";
                 sectionsHtml = `
                             <div class="case-study-popup-section" id="cs-bg">
                                 <div class="case-study-popup-section-title">Background</div>
