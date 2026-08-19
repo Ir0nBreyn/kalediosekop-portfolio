@@ -253,7 +253,7 @@
 
 
         // ===== ACTIVE NAV LINK ON SCROLL + SLIDING INDICATOR =====
-        const navLinks = document.querySelectorAll('.nav-pill a');
+        const navLinks = document.querySelectorAll('.nav-pill a:not(.mobile-nav-cta)');
         const navPillEl = document.querySelector('.nav-pill');
         const navIndicator = document.querySelector('.nav-pill-indicator');
 
