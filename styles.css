@@ -109,8 +109,31 @@
             color: #3d3d3d;
         }
 
-        .mobile-nav-cta {
-            display: none;
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 1.1rem;
+            background: linear-gradient(180deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            outline: 1px solid #FF6600;
+            outline-offset: -1px;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 100px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #FF6600;
+            box-shadow: 0 2px 4px rgba(18, 18, 18, 0.08);
+            transition-delay: 0.3s;
+        }
+
+        .nav-cta:active {
+            background: linear-gradient(0deg, #f5f5f540 0%, #f5f5f500 50%), #E9560C;
         }
 
         .mobile-menu-btn {
@@ -1611,7 +1634,8 @@
         @media (min-width: 1280px) {
             /* Nav */
             .logo-pill,
-            .nav-pill a {
+            .nav-pill a,
+            .nav-cta {
                 font-size: 0.8rem;
             }
 
@@ -1851,7 +1875,8 @@
             }
 
             /* Nav */
-            .nav-pill {
+            .nav-pill,
+            .nav-cta {
                 display: none;
             }
             .mobile-menu-btn {
