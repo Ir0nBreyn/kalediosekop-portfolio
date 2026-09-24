@@ -513,9 +513,9 @@
             let projectLinkHtml, heroImageSrc, sectionsHtml;
 
             if (project === 'Common Store Co') {
-                const basePath = "Asset/Home/Featured Work/FW - 1";
+                const basePath = "/Asset/Home/Featured Work/FW - 1";
                 projectLinkHtml = `<a href="https://thecommonstore.co" target="_blank" onclick="event.stopPropagation()">${project}</a>`;
-                heroImageSrc = "Asset/Home/Featured Work/FW - 3.webp";
+                heroImageSrc = "/Asset/Home/Featured Work/FW - 3.webp";
                 sectionsHtml = `
                             <div class="case-study-popup-section" id="cs-bg">
                                 <div class="case-study-popup-section-title">Background</div>
@@ -596,9 +596,9 @@
                                 </div>
                             </div>`;
             } else if (project === 'Visitor Management System') {
-                const vmsBasePath = "Asset/Home/Featured Work/FW - 3";
+                const vmsBasePath = "/Asset/Home/Featured Work/FW - 3";
                 projectLinkHtml = `<a href="https://etamu-dprd.bandungbaratkab.go.id/" target="_blank" onclick="event.stopPropagation()">${project}</a>`;
-                heroImageSrc = "Asset/Home/Featured Work/FW - 1.webp";
+                heroImageSrc = "/Asset/Home/Featured Work/FW - 1.webp";
                 sectionsHtml = `
                             <div class="case-study-popup-section" id="cs-bg">
                                 <div class="case-study-popup-section-title">Background</div>
@@ -692,9 +692,9 @@
                                 </div>
                             </div>`;
             } else if (project === 'C-Infra KAI Commuter') {
-                const kaiBasePath = "Asset/Home/Featured Work/FW - 2";
+                const kaiBasePath = "/Asset/Home/Featured Work/FW - 2";
                 projectLinkHtml = `<span>${project}</span>`;
-                heroImageSrc = "Asset/Home/Featured Work/FW - 4.webp";
+                heroImageSrc = "/Asset/Home/Featured Work/FW - 4.webp";
                 sectionsHtml = `
                             <div class="case-study-popup-section" id="cs-bg">
                                 <div class="case-study-popup-section-title">Background</div>
@@ -774,7 +774,7 @@
                                     <p>I'll be upfront that I don't have adoption numbers or time-saved metrics for this one, that data wasn't tracked or shared back to the design team.</p>
                                 </div>
                                 <div class="case-study-popup-section-images">
-                                    <img src="Asset/Home/Featured Work/KAI Commuter.webp" alt="KAI Commuter outcome" onclick="openImagePopup(this.src)" style="cursor: zoom-in;">
+                                    <img src="/Asset/Home/Featured Work/KAI Commuter.webp" alt="KAI Commuter outcome" onclick="openImagePopup(this.src)" style="cursor: zoom-in;">
                                 </div>
                             </div>
 
