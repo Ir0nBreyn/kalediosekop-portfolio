@@ -423,6 +423,23 @@
             }
         }
 
+        // ===== CASE STUDY ROUTING =====
+        const caseStudyRoutes = {
+            'c-infra': 'C-Infra KAI Commuter',
+            'common-store': 'Common Store Co',
+            'vms': 'Visitor Management System'
+        };
+        const projectToSlug = Object.fromEntries(
+            Object.entries(caseStudyRoutes).map(([k, v]) => [v, k])
+        );
+
+        function openCaseStudyBySlug(slug) {
+            const project = caseStudyRoutes[slug];
+            if (!project) return;
+            const slide = document.querySelector(`.works-slide[data-project="${project}"]`);
+            if (slide) openCaseStudyPopup(slide);
+        }
+
         // ===== CASE STUDY POPUP =====
         function openCaseStudyPopup(slide) {
             if (!slide) return;
@@ -430,6 +447,8 @@
             const isFullCase = slide.dataset.fullcase === 'true';
             if (isFullCase) {
                 renderFullCaseStudy(slide);
+                const slug = projectToSlug[slide.dataset.project];
+                if (slug) history.pushState({ caseStudy: slug }, '', '/case-study/' + slug);
                 return;
             }
 
@@ -754,6 +773,9 @@
                                     </ul>
                                     <p>I'll be upfront that I don't have adoption numbers or time-saved metrics for this one, that data wasn't tracked or shared back to the design team.</p>
                                 </div>
+                                <div class="case-study-popup-section-images">
+                                    <img src="Asset/Home/Featured Work/KAI Commuter.webp" alt="KAI Commuter outcome" onclick="openImagePopup(this.src)" style="cursor: zoom-in;">
+                                </div>
                             </div>
 
                             <div class="case-study-popup-section" id="cs-skills">
@@ -855,6 +877,7 @@
                     popup.classList.remove('case-study-popup--full');
                     document.body.style.overflow = '';
                 }, 400);
+                history.pushState(null, '', '/');
             }
         }
 
@@ -886,3 +909,24 @@
                 }
             });
         });
+
+        // ===== CASE STUDY URL ROUTING =====
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.caseStudy) {
+                openCaseStudyBySlug(e.state.caseStudy);
+            } else {
+                const popup = document.getElementById('case-study-popup');
+                if (popup && popup.classList.contains('active')) {
+                    popup.classList.remove('active');
+                    setTimeout(() => {
+                        popup.classList.remove('case-study-popup--full');
+                        document.body.style.overflow = '';
+                    }, 400);
+                }
+            }
+        });
+
+        const pathParts = window.location.pathname.split('/').filter(Boolean);
+        if (pathParts[0] === 'case-study' && pathParts[1]) {
+            openCaseStudyBySlug(pathParts[1]);
+        }
