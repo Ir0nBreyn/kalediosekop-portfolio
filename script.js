@@ -774,6 +774,7 @@
                                     <p>I'll be upfront that I don't have adoption numbers or time-saved metrics for this one, that data wasn't tracked or shared back to the design team.</p>
                                 </div>
                                 <div class="case-study-popup-section-images">
+                                    <img src="/Asset/Home/Featured Work/FW - 2/5 - UI.webp" alt="C-Infra UI" style="width: 100%; border-radius: 4px; cursor: zoom-in;" onclick="event.stopPropagation(); openImagePopup(this.src)">
                                     <img src="/Asset/Home/Featured Work/KAI Commuter.webp" alt="KAI Commuter outcome" onclick="openImagePopup(this.src)" style="cursor: zoom-in;">
                                 </div>
                             </div>
